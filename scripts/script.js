@@ -1,5 +1,3 @@
-$(document).ready(function () {
-
-    // script for navbar mobile menu
-    $(".button-collapse").sidenav();
-});
+$(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
