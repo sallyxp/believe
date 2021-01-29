@@ -14,7 +14,7 @@
 .bg-modal {
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.7);
     position: absolute;
     top: 0;
     display: flex;
@@ -28,13 +28,11 @@
     height: 400px;
     background-color: #E4ECCD;
     border-radius: 10px;
-    padding-left: 2%;  
+    padding-left: 2%; 
+    padding-right: 2%; 
     font-family: bradley-hand;
     position: relative;
-}
-
-h4 .modal-content {
-    font-weight: 900;
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.8), 0 10px 20px 0 rgba(0, 0, 0, 1);
 }
 
 /* Modal Continue Button */
