@@ -8,11 +8,9 @@ const MEAL_DIV = $('.meal');
 const DAILY_DIV = $('.daily');
 const WEEKLY_DIV = $('.weekly');
 let FOOD_ITEMS = JSON.parse(localStorage.getItem('food')) || [];
-
-let CURRENT_FOOD_ITEM = {};
-const MEAL_FOODS = [];
-const DAILY_FOODS = [];
-const WEEKLY_FOODS = [];
+let MEAL_FOODS_ARR = [];
+let DAILY_FOODS_ARR = [];
+let WEEKLY_FOODS_ARR = [];
 
 // <--- FUNCTIONS --->
 
@@ -23,6 +21,28 @@ function getRandomArrIndex(array) {
 
 function copyAppend(cloneItem, targetDiv) {
     targetDiv.append(cloneItem.clone());
+}
+
+function renderCurrentNutri(searchItem) {
+    ITEM_DIV.empty();
+    let CURRENT_FOODS = [];
+    CURRENT_FOODS.push(currentFoodObj);
+    CURRENT_FOODS.forEach(foodItem => {
+        let foodNameDiv = $("<h3>").text(searchItem);
+        ITEM_DIV.append(foodNameDiv);
+        let caloriesDiv = $("<p>").text(" - Calories (kcal): " + foodItem.calories);
+        ITEM_DIV.append(caloriesDiv);
+        let proteinDiv = $("<p>").text(" - Protein (g): " + foodItem.protein);
+        proteinDiv.attr("ID", "protein");
+        ITEM_DIV.append(proteinDiv);
+        let fatDiv = $("<p>").text(" - Fat (g): " + foodItem.fat);
+        fatDiv.attr("ID", "fats");
+        ITEM_DIV.append(fatDiv);
+        let carbDiv = $("<p>").text(" - Carbs (g): " + foodItem.carb);
+        carbDiv.attr("ID", "carbs");
+        ITEM_DIV.append(carbDiv);
+        NUTRI_DIV.append(ITEM_DIV);
+    })
 }
 
 // <--- MAIN --->
@@ -39,7 +59,6 @@ function getInspiration() {
 }
 
 function getNutrition(searchedFood) {
-    ITEM_DIV.empty()
     $.ajax({
         method: 'GET',
         url: 'https://api.calorieninjas.com/v1/nutrition?query=' + searchedFood,
@@ -47,34 +66,13 @@ function getNutrition(searchedFood) {
         contentType: 'application/json'
     }).
     then(function(a) {
-        for (var i = 0; i < a.items.length; i++) {
-            let foodNameDiv = $("<h3>").text(searchedFood);
-            ITEM_DIV.append(foodNameDiv);
-            const {
-                calories,
-                protein_g,
-                fat_total_g,
-                carbohydrates_total_g
-            } = a.items[i];
-            CURRENT_FOOD_ITEM = {
-                calories,
-                protein_g,
-                fat_total_g,
-                carbohydrates_total_g
-            }
-            let caloriesDiv = $("<p>").text(" - Calories (kcal): " + calories);
-            ITEM_DIV.append(caloriesDiv);
-            let proteinDiv = $("<p>").text(" - Protein (g): " + protein_g);
-            proteinDiv.attr("ID", "protein");
-            ITEM_DIV.append(proteinDiv);
-            let fatDiv = $("<p>").text(" - Fat (g): " + fat_total_g);
-            fatDiv.attr("ID", "fats");
-            ITEM_DIV.append(fatDiv);
-            let carbDiv = $("<p>").text(" - Carbs (g): " + carbohydrates_total_g);
-            carbDiv.attr("ID", "carbs");
-            ITEM_DIV.append(carbDiv);
-            NUTRI_DIV.append(ITEM_DIV);
+        currentFoodObj = {
+            calories: a.items[0].calories,
+            protein: a.items[0].protein_g,
+            fat: a.items[0].fat_total_g,
+            carb: a.items[0].carbohydrates_total_g
         }
+        renderCurrentNutri(searchedFood);
     })
 }
 
@@ -95,29 +93,47 @@ SEARCH_BUTTON.on('click', function(event) {
 
 ITEM_DIV.on('click', function() {
     copyAppend($(this), MEAL_DIV)
+    MEAL_FOODS_ARR.push(currentFoodObj);
+    // console.log(MEAL_FOODS);
+})
 
-    MEAL_FOODS.push(CURRENT_FOOD_ITEM);
+MEAL_DIV.on('click', function() {
+    copyAppend($(this), DAILY_DIV)
+        // DAILY_FOODS.push(CURRENT_FOOD_ITEM);
+    DAILY_FOODS_ARR.push(MEAL_FOODS_ARR);
+    // DAILY FOODS IS A MULTIDIMENSIONAL ARRAY.
+    // console.log(DAILY_FOODS);
+    // MAKE BELOW INTO A FUNCTION! AS IT IS USED TWICE.
     let calorieSum = 0;
     let proteinSum = 0;
     let fatSum = 0;
     let carbSum = 0;
-    MEAL_FOODS.forEach(foodItem => {
+    MEAL_FOODS_ARR.forEach(foodItem => {
         calorieSum += foodItem.calories;
-        proteinSum += foodItem.protein_g;
-        fatSum += foodItem.fat_total_g;
-        carbSum += foodItem.carbohydrates_total_g;
+        proteinSum += foodItem.protein;
+        fatSum += foodItem.fat;
+        carbSum += foodItem.carb;
     })
 
     const tempString = `cal: ${calorieSum}, pro: ${proteinSum}, fat: ${fatSum}, carb: ${carbSum}`
     alert(tempString)
 })
 
-MEAL_DIV.on('click', function() {
-    copyAppend($(this), DAILY_DIV)
-})
-
 DAILY_DIV.on('click', function() {
     copyAppend($(this), WEEKLY_DIV)
+    let calorieSum = 0;
+    let proteinSum = 0;
+    let fatSum = 0;
+    let carbSum = 0;
+    // DAILY FOODS IS A MULTIDIMENSIONAL ARRAY. USE A FLATTEN TOOL HERE BUT CAN ALSO USE A NESTED FORLOOP INSTEAD
+    let DAILY_FOODS_FLAT = DAILY_FOODS_ARR.flat();
+    DAILY_FOODS_FLAT.forEach(foodItem => {
+        // console.log(foodItem);
+        calorieSum += foodItem.calories;
+        proteinSum += foodItem.protein;
+        fatSum += foodItem.fat;
+        carbSum += foodItem.carb;
+    })
+    const tempDailyString = `cal: ${calorieSum}, pro: ${proteinSum}, fat: ${fatSum}, carb: ${carbSum}`
+    alert(tempDailyString)
 })
-
-// NEXT NEED TO FIND A WAY TO TALLY UP CALORIES AND TOTAL THEM FOR EACH CATEGORY
