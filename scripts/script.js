@@ -9,6 +9,11 @@ const DAILY_DIV = $('.daily');
 const WEEKLY_DIV = $('.weekly');
 let FOOD_ITEMS = JSON.parse(localStorage.getItem('food')) || [];
 
+let CURRENT_FOOD_ITEM = {};
+const MEAL_FOODS = [];
+const DAILY_FOODS = [];
+const WEEKLY_FOODS = [];
+
 // <--- FUNCTIONS --->
 
 function getRandomArrIndex(array) {
@@ -45,15 +50,27 @@ function getNutrition(searchedFood) {
         for (var i = 0; i < a.items.length; i++) {
             let foodNameDiv = $("<h3>").text(searchedFood);
             ITEM_DIV.append(foodNameDiv);
-            let caloriesDiv = $("<p>").text(" - Calories (kcal): " + a.items[i].calories);
+            const {
+                calories,
+                protein_g,
+                fat_total_g,
+                carbohydrates_total_g
+            } = a.items[i];
+            CURRENT_FOOD_ITEM = {
+                calories,
+                protein_g,
+                fat_total_g,
+                carbohydrates_total_g
+            }
+            let caloriesDiv = $("<p>").text(" - Calories (kcal): " + calories);
             ITEM_DIV.append(caloriesDiv);
-            let proteinDiv = $("<p>").text(" - Protein (g): " + a.items[i].protein_g);
+            let proteinDiv = $("<p>").text(" - Protein (g): " + protein_g);
             proteinDiv.attr("ID", "protein");
             ITEM_DIV.append(proteinDiv);
-            let fatDiv = $("<p>").text(" - Fat (g): " + a.items[i].fat_total_g);
+            let fatDiv = $("<p>").text(" - Fat (g): " + fat_total_g);
             fatDiv.attr("ID", "fats");
             ITEM_DIV.append(fatDiv);
-            let carbDiv = $("<p>").text(" - Carbs (g): " + a.items[i].carbohydrates_total_g);
+            let carbDiv = $("<p>").text(" - Carbs (g): " + carbohydrates_total_g);
             carbDiv.attr("ID", "carbs");
             ITEM_DIV.append(carbDiv);
             NUTRI_DIV.append(ITEM_DIV);
@@ -78,6 +95,21 @@ SEARCH_BUTTON.on('click', function(event) {
 
 ITEM_DIV.on('click', function() {
     copyAppend($(this), MEAL_DIV)
+
+    MEAL_FOODS.push(CURRENT_FOOD_ITEM);
+    let calorieSum = 0;
+    let proteinSum = 0;
+    let fatSum = 0;
+    let carbSum = 0;
+    MEAL_FOODS.forEach(foodItem => {
+        calorieSum += foodItem.calories;
+        proteinSum += foodItem.protein_g;
+        fatSum += foodItem.fat_total_g;
+        carbSum += foodItem.carbohydrates_total_g;
+    })
+
+    const tempString = `cal: ${calorieSum}, pro: ${proteinSum}, fat: ${fatSum}, carb: ${carbSum}`
+    alert(tempString)
 })
 
 MEAL_DIV.on('click', function() {
