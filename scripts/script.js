@@ -7,6 +7,8 @@ const ITEM_DIV = $('<div>').addClass('ITEM_DIV');
 const MEAL_DIV = $('.meal');
 const DAILY_DIV = $('.daily');
 const WEEKLY_DIV = $('.weekly');
+const MEAL_TOTAL_DIV = $('.mealTotal');
+const DAILY_TOTAL_DIV = $('.dailyTotal');
 let FOOD_ITEMS = JSON.parse(localStorage.getItem('food')) || [];
 let MEAL_FOODS_ARR = [];
 let DAILY_FOODS_ARR = [];
@@ -28,7 +30,7 @@ function renderCurrentNutri(searchItem) {
     let CURRENT_FOODS = [];
     CURRENT_FOODS.push(currentFoodObj);
     CURRENT_FOODS.forEach(foodItem => {
-        let foodNameDiv = $("<h3>").text(searchItem);
+        let foodNameDiv = $("<p>").text(searchItem);
         ITEM_DIV.append(foodNameDiv);
         let caloriesDiv = $("<p>").text(" - Calories (kcal): " + foodItem.calories);
         ITEM_DIV.append(caloriesDiv);
@@ -42,10 +44,49 @@ function renderCurrentNutri(searchItem) {
         carbDiv.attr("ID", "carbs");
         ITEM_DIV.append(carbDiv);
         NUTRI_DIV.append(ITEM_DIV);
+        renderDrop(searchItem);
     })
 }
 
+// THIS IS A BETA FUNCTION. Currently when the information displays it always displays the entirety of the nutritional information. With this we could display the nutrition for the nutritional section
+// and for the rest of the code we could have it as a drop down so it just looks a little nicer. 
+// function renderDrop(searchItem) {
+//     let collapsible = $("<ul>").addClass("collapsible");
+//     let listItem = $("<li>");
+//     collapsible.append(listItem);
+//     let header = $("<div>").addClass("collapsible-header");
+//     header.text(searchItem);
+//     let expandIcon = $("<i>").addClass("material-icons");
+//     expandIcon.text("expand_more");
+//     // might be innerHTML for icon rather than append
+//     header.html(expandIcon);
+//     let body = $("<div>").addClass("collapsible-body");
+//     let span = $("<span>");
+//     span.text("testing")
+//     body.append(span);
+//     collapsible.append(header);
+//     collapsible.append(body);
+//     NUTRI_DIV.append(collapsible);
+// }
+
+// THIS IS TO ALLOW COLLAPSIBLE ITEMS TO WORK
+// $(document).ready(function() {
+//     $('.collapsible').collapsible();
+// });
+
+
 // <--- MAIN --->
+
+// Modal load
+$('.bg-modal').css('display', 'flex');
+
+// Navbar mobile collapse
+$('.sidenav').sidenav();
+
+// Modal .onclick close
+$('.continue').on('click', function() {
+    $('.bg-modal').css('display', 'none');
+})
 
 function getInspiration() {
     $.ajax({
@@ -54,7 +95,7 @@ function getInspiration() {
     }).then(function(a1) {
         const data = JSON.parse(a1);
         let randomQuote = getRandomArrIndex(data).text;
-        $(".quote").html("<h2>" + '"' + randomQuote + '"' + "</h2>");
+        $("#modal-mtd").html("<h2>" + '"' + randomQuote + '"' + "</h2>");
     })
 }
 
@@ -114,9 +155,8 @@ MEAL_DIV.on('click', function() {
         fatSum += foodItem.fat;
         carbSum += foodItem.carb;
     })
-
-    const tempString = `cal: ${calorieSum}, pro: ${proteinSum}, fat: ${fatSum}, carb: ${carbSum}`
-    alert(tempString)
+    const mealString = `Cal: ${calorieSum}, Pro: ${proteinSum}, Fat: ${fatSum}, Carb: ${carbSum}`
+    MEAL_TOTAL_DIV.text(mealString);
 })
 
 DAILY_DIV.on('click', function() {
@@ -134,6 +174,6 @@ DAILY_DIV.on('click', function() {
         fatSum += foodItem.fat;
         carbSum += foodItem.carb;
     })
-    const tempDailyString = `cal: ${calorieSum}, pro: ${proteinSum}, fat: ${fatSum}, carb: ${carbSum}`
-    alert(tempDailyString)
+    const dailyString = `Cal: ${calorieSum}, Pro: ${proteinSum}, Fat: ${fatSum}, Carb: ${carbSum}`
+    DAILY_TOTAL_DIV.text(dailyString);
 })

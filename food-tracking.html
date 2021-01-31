@@ -40,7 +40,7 @@
         </nav>
     </header>
 
-    <content>
+    <div class="container">
         <input type="text" class="searchInput" placeholder="Search food here...">
         <button type="submit" class="searchButton">Search</button>
 
@@ -48,13 +48,19 @@
         <!-- Will contain meals made up of the individual items added from search -->
         <h4>Meals...</h4>
         <div class="meal"></div>
+        <div class="mealTotal">
+            <h6></h6>
+        </div>
         <!-- Will contain daily food intake made up of meals added from the meal section -->
         <h4>Daily...</h4>
         <div class="daily"></div>
+        <div class="dailyTotal">
+            <h6></h6>
+        </div>
         <!-- Will contain weekly food intake made up of days added from the daily section -->
         <h4>Weekly...</h4>
         <div class="weekly"></div>
-    </content>
+    </div>
 
     <!-- Footer here -->
     <footer class="page-footer transparent" style="position:fixed;bottom:0;left:0;width:100%;">
