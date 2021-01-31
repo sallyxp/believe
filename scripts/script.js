@@ -2,6 +2,13 @@
 
 const SEARCH_INPUT = $('.searchInput');
 const SEARCH_BUTTON = $('.searchButton');
+const NUTRI_ADD_BUTTON = $('.nutriAdd');
+const MEAL_ADD_BUTTON = $('.mealAdd');
+const DAY_ADD_BUTTON = $('.dayAdd');
+// const REMOVE_BUTTON = $('<button>');
+// REMOVE_BUTTON.text("Remove");
+const MEAL_TOTAL_BUTTON = $('.mealTotalBtn');
+const DAY_TOTAL_BUTTON = $('.dayTotalBtn');
 const NUTRI_DIV = $('.nutri');
 const ITEM_DIV = $('<div>').addClass('ITEM_DIV');
 const MEAL_DIV = $('.meal');
@@ -22,13 +29,29 @@ function getRandomArrIndex(array) {
 }
 
 function copyAppend(cloneItem, targetDiv) {
-    targetDiv.append(cloneItem.clone());
+    targetDiv.append(cloneItem.clone(true));
+}
+
+function getTotal(DIV) {
+    let calorieSum = 0;
+    let proteinSum = 0;
+    let fatSum = 0;
+    let carbSum = 0;
+    MEAL_FOODS_ARR.forEach(foodItem => {
+        calorieSum += foodItem.calories;
+        proteinSum += foodItem.protein;
+        fatSum += foodItem.fat;
+        carbSum += foodItem.carb;
+    })
+    const String = `Cal: ${calorieSum}, Pro: ${proteinSum}, Fat: ${fatSum}, Carb: ${carbSum}`
+    DIV.text(String);
 }
 
 function renderCurrentNutri(searchItem) {
     ITEM_DIV.empty();
     let CURRENT_FOODS = [];
     CURRENT_FOODS.push(currentFoodObj);
+    // ITEM_DIV.append(REMOVE_BUTTON);
     CURRENT_FOODS.forEach(foodItem => {
         let foodNameDiv = $("<p>").text(searchItem);
         ITEM_DIV.append(foodNameDiv);
@@ -44,7 +67,6 @@ function renderCurrentNutri(searchItem) {
         carbDiv.attr("ID", "carbs");
         ITEM_DIV.append(carbDiv);
         NUTRI_DIV.append(ITEM_DIV);
-        renderDrop(searchItem);
     })
 }
 
@@ -132,48 +154,29 @@ SEARCH_BUTTON.on('click', function(event) {
     getInspiration();
 })
 
-ITEM_DIV.on('click', function() {
-    copyAppend($(this), MEAL_DIV)
+NUTRI_ADD_BUTTON.on('click', function() {
+    copyAppend(ITEM_DIV, MEAL_DIV)
     MEAL_FOODS_ARR.push(currentFoodObj);
-    // console.log(MEAL_FOODS);
 })
 
-MEAL_DIV.on('click', function() {
-    copyAppend($(this), DAILY_DIV)
-        // DAILY_FOODS.push(CURRENT_FOOD_ITEM);
+MEAL_ADD_BUTTON.on('click', function() {
+    copyAppend(MEAL_DIV, DAILY_DIV)
     DAILY_FOODS_ARR.push(MEAL_FOODS_ARR);
-    // DAILY FOODS IS A MULTIDIMENSIONAL ARRAY.
-    // console.log(DAILY_FOODS);
-    // MAKE BELOW INTO A FUNCTION! AS IT IS USED TWICE.
-    let calorieSum = 0;
-    let proteinSum = 0;
-    let fatSum = 0;
-    let carbSum = 0;
-    MEAL_FOODS_ARR.forEach(foodItem => {
-        calorieSum += foodItem.calories;
-        proteinSum += foodItem.protein;
-        fatSum += foodItem.fat;
-        carbSum += foodItem.carb;
-    })
-    const mealString = `Cal: ${calorieSum}, Pro: ${proteinSum}, Fat: ${fatSum}, Carb: ${carbSum}`
-    MEAL_TOTAL_DIV.text(mealString);
 })
 
-DAILY_DIV.on('click', function() {
-    copyAppend($(this), WEEKLY_DIV)
-    let calorieSum = 0;
-    let proteinSum = 0;
-    let fatSum = 0;
-    let carbSum = 0;
-    // DAILY FOODS IS A MULTIDIMENSIONAL ARRAY. USE A FLATTEN TOOL HERE BUT CAN ALSO USE A NESTED FORLOOP INSTEAD
-    let DAILY_FOODS_FLAT = DAILY_FOODS_ARR.flat();
-    DAILY_FOODS_FLAT.forEach(foodItem => {
-        // console.log(foodItem);
-        calorieSum += foodItem.calories;
-        proteinSum += foodItem.protein;
-        fatSum += foodItem.fat;
-        carbSum += foodItem.carb;
-    })
-    const dailyString = `Cal: ${calorieSum}, Pro: ${proteinSum}, Fat: ${fatSum}, Carb: ${carbSum}`
-    DAILY_TOTAL_DIV.text(dailyString);
+DAY_ADD_BUTTON.on('click', function() {
+    copyAppend(DAILY_DIV, WEEKLY_DIV)
+    WEEKLY_FOODS_ARR.push(DAILY_FOODS_ARR);
+});
+
+MEAL_TOTAL_BUTTON.on('click', function() {
+    getTotal(MEAL_TOTAL_DIV);
 })
+
+DAY_TOTAL_BUTTON.on('click', function() {
+    getTotal(DAILY_TOTAL_DIV);
+})
+
+// REMOVE_BUTTON.on('click', function() {
+//     $(this).parent().remove();
+// });
