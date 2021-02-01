@@ -70,3 +70,8 @@ body {
 .continue:hover {
     font-weight:900;
 }
+
+img {
+    height: 200px;
+    width: 300px;
+}
