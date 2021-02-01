@@ -12,7 +12,7 @@
 
 /* Header/Banner */
 body {
-    background: url(../img/james-lewis-xmhS87aA7tQ-unsplash.jpg);
+    background: url(../img/johannes-plenio-6XUA5KQ9-1k-unsplash.jpg);
     background-size: cover;
     background-position: center;
     min-height: 1300px;
@@ -32,6 +32,9 @@ body {
 /* Welcome Message on Home Page */
 #welcome-msg {
     padding: 2.5%;
+    background: url(../img/nathan-anderson-GM5Yn5XRVqA-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 /* Modal Style */
@@ -74,4 +77,9 @@ body {
 img {
     height: 200px;
     width: 300px;
+}
+
+.well-being {
+    height: 200px;
+    width: 400px;
 }
