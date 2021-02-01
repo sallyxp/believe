@@ -29,6 +29,11 @@
     }
 } */
 
+/* Welcome Message on Home Page */
+#welcome-msg {
+    padding: 2.5%;
+}
+
 /* Modal Style */
 .bg-modal {
     width: 100%;
