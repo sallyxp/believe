@@ -104,16 +104,16 @@ function renderCurrentNutri(searchItem) {
 
 // <--- MAIN --->
 
-// // Modal load
-// $('.bg-modal').css('display', 'flex');
+// Modal load
+$('.bg-modal').css('display', 'flex');
 
-// // Navbar mobile collapse
-// $('.sidenav').sidenav();
+// Navbar mobile collapse
+$('.sidenav').sidenav();
 
-// // Modal .onclick close
-// $('.continue').on('click', function() {
-//     $('.bg-modal').css('display', 'none');
-// })
+// Modal .onclick close
+$('.continue').on('click', function() {
+    $('.bg-modal').css('display', 'none');
+})
 
 function getInspiration() {
     $.ajax({
