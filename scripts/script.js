@@ -115,6 +115,8 @@ $('.continue').on('click', function() {
     $('.bg-modal').css('display', 'none');
 })
 
+getInspiration();
+
 function getInspiration() {
     $.ajax({
         method: 'GET',
@@ -122,7 +124,7 @@ function getInspiration() {
     }).then(function(a1) {
         const data = JSON.parse(a1);
         let randomQuote = getRandomArrIndex(data).text;
-        $("#modal-mtd").html("<h2>" + '"' + randomQuote + '"' + "</h2>");
+        $("#modal-motd").html('"' + randomQuote + '"');
     })
 }
 
