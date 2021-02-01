@@ -11,7 +11,7 @@
 }
 
 /* Header/Banner */
-header {
+/* header {
     background: url(../img/james-lewis-xmhS87aA7tQ-unsplash.jpg);
     background-size: cover;
     background-position: center;
@@ -26,7 +26,7 @@ header {
     header{
         min-height: 900px;
     }
-}
+} */
 
 /* Modal Style */
 .bg-modal {
