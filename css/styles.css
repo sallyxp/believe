@@ -16,6 +16,7 @@
     background-size: cover;
     background-position: center;
     min-height: 1300px;
+  
 }
 @media screen and (max-width: 1024px){
     header{
