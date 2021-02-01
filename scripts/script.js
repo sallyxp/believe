@@ -182,10 +182,6 @@ WEEK_TOTAL_BUTTON.on('click', function() {
     getTotal(WEEKLY_TOTAL_DIV);
 })
 
-REMOVE_BUTTON.on('click', function() {
-    $(this).parent().remove();
-})
-
 $("div").on('click', ".remove", function() {
     $(this).parent().remove();
 })
