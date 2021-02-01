@@ -11,22 +11,27 @@
 }
 
 /* Header/Banner */
-header {
-    background: url(../img/Tresco.JPG);
+body {
+    background: url(../img/james-lewis-xmhS87aA7tQ-unsplash.jpg);
     background-size: cover;
     background-position: center;
     min-height: 1300px;
   
 }
 @media screen and (max-width: 1024px){
-    header{
+    body{
         min-height: 1400px;
     }
 }
 @media screen and (max-width: 670px){
-    header{
+    body{
         min-height: 900px;
     }
+}
+
+/* Welcome Message on Home Page */
+#welcome-msg {
+    padding: 2.5%;
 }
 
 /* Modal Style */

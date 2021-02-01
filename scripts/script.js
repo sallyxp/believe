@@ -5,8 +5,7 @@ const SEARCH_BUTTON = $('.searchButton');
 const NUTRI_ADD_BUTTON = $('.nutriAdd');
 const MEAL_ADD_BUTTON = $('.mealAdd');
 const DAY_ADD_BUTTON = $('.dayAdd');
-const REMOVE_BUTTON = $('<button>').addClass("remove");
-REMOVE_BUTTON.text("Remove");
+const REMOVE_BUTTON = $('<button>').text("Remove").addClass("remove");
 const MEAL_TOTAL_BUTTON = $('.mealTotalBtn');
 const DAY_TOTAL_BUTTON = $('.dayTotalBtn');
 const WEEK_TOTAL_BUTTON = $('.weekTotalBtn');
@@ -25,6 +24,11 @@ let WEEKLY_FOODS_ARR = [];
 
 // <--- FUNCTIONS --->
 
+function spliceItem(ARR, This) {
+    index = ARR.indexOf(This);
+    ARR.splice(index, 1);
+}
+
 function getRandomArrIndex(array) {
     let index = Math.floor(Math.random() * array.length);
     return array[index]
@@ -34,12 +38,12 @@ function copyAppend(cloneItem, targetDiv) {
     targetDiv.append(cloneItem.clone(true, true));
 }
 
-function getTotal(DIV) {
+function getTotal(ARRAY, DIV) {
     let calorieSum = 0;
     let proteinSum = 0;
     let fatSum = 0;
     let carbSum = 0;
-    MEAL_FOODS_ARR.forEach(foodItem => {
+    ARRAY.forEach(foodItem => {
         calorieSum += foodItem.calories;
         proteinSum += foodItem.protein;
         fatSum += foodItem.fat;
@@ -100,16 +104,16 @@ function renderCurrentNutri(searchItem) {
 
 // <--- MAIN --->
 
-// Modal load
-$('.bg-modal').css('display', 'flex');
+// // Modal load
+// $('.bg-modal').css('display', 'flex');
 
-// Navbar mobile collapse
-$('.sidenav').sidenav();
+// // Navbar mobile collapse
+// $('.sidenav').sidenav();
 
-// Modal .onclick close
-$('.continue').on('click', function() {
-    $('.bg-modal').css('display', 'none');
-})
+// // Modal .onclick close
+// $('.continue').on('click', function() {
+//     $('.bg-modal').css('display', 'none');
+// })
 
 function getInspiration() {
     $.ajax({
@@ -130,7 +134,9 @@ function getNutrition(searchedFood) {
         contentType: 'application/json'
     }).
     then(function(a) {
+        console.log(a);
         currentFoodObj = {
+            food: a.items[0].name,
             calories: a.items[0].calories,
             protein: a.items[0].protein_g,
             fat: a.items[0].fat_total_g,
@@ -158,6 +164,7 @@ SEARCH_BUTTON.on('click', function(event) {
 NUTRI_ADD_BUTTON.on('click', function() {
     copyAppend(ITEM_DIV, MEAL_DIV)
     MEAL_FOODS_ARR.push(currentFoodObj);
+    console.log(MEAL_FOODS_ARR);
 })
 
 MEAL_ADD_BUTTON.on('click', function() {
@@ -171,11 +178,12 @@ DAY_ADD_BUTTON.on('click', function() {
 })
 
 MEAL_TOTAL_BUTTON.on('click', function() {
-    getTotal(MEAL_TOTAL_DIV);
+    getTotal(MEAL_FOODS_ARR, MEAL_TOTAL_DIV);
 })
 
 DAY_TOTAL_BUTTON.on('click', function() {
-    getTotal(DAILY_TOTAL_DIV);
+    let DAILY_FOODS_ARR_FLAT = DAILY_FOODS_ARR.flat();
+    getTotal(DAILY_FOODS_ARR_FLAT, DAILY_TOTAL_DIV);
 })
 
 WEEK_TOTAL_BUTTON.on('click', function() {
@@ -184,4 +192,13 @@ WEEK_TOTAL_BUTTON.on('click', function() {
 
 $("div").on('click', ".remove", function() {
     $(this).parent().remove();
+    // let index = MEAL_FOODS_ARR.indexOf($(this));
+    // console.log(index);
+    // spliceItem(MEAL_FOODS_ARR, $(this).parent());
+
+    // MEAL_FOODS_ARR.splice(MEAL_FOODS_ARR.indexOf($(this)), 1);
+    // let test = $(this).parent().index();
+    // console.log(test);
 })
+
+// MEAL_FOODS_ARR.splice($.inArray(removeItem, MEAL_FOODS_ARR), $(this));
