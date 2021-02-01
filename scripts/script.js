@@ -59,48 +59,43 @@ function renderCurrentNutri(searchItem) {
     CURRENT_FOODS.push(currentFoodObj);
     ITEM_DIV.append(REMOVE_BUTTON);
     CURRENT_FOODS.forEach(foodItem => {
-            let foodNameDiv = $("<p>").text(searchItem);
-            ITEM_DIV.append(foodNameDiv);
-            let caloriesDiv = $("<p>").text(" - Calories (kcal): " + foodItem.calories);
-            ITEM_DIV.append(caloriesDiv);
-            let proteinDiv = $("<p>").text(" - Protein (g): " + foodItem.protein);
-            proteinDiv.attr("ID", "protein");
-            ITEM_DIV.append(proteinDiv);
-            let fatDiv = $("<p>").text(" - Fat (g): " + foodItem.fat);
-            fatDiv.attr("ID", "fats");
-            ITEM_DIV.append(fatDiv);
-            let carbDiv = $("<p>").text(" - Carbs (g): " + foodItem.carb);
-            carbDiv.attr("ID", "carbs");
-            ITEM_DIV.append(carbDiv);
-            NUTRI_DIV.append(ITEM_DIV);
-        })
-        // renderDrop(searchItem);
+        let foodNameDiv = $("<p>").text(searchItem);
+        ITEM_DIV.append(foodNameDiv);
+        let caloriesDiv = $("<p>").text(" - Calories (kcal): " + foodItem.calories);
+        ITEM_DIV.append(caloriesDiv);
+        let proteinDiv = $("<p>").text(" - Protein (g): " + foodItem.protein);
+        proteinDiv.attr("ID", "protein");
+        ITEM_DIV.append(proteinDiv);
+        let fatDiv = $("<p>").text(" - Fat (g): " + foodItem.fat);
+        fatDiv.attr("ID", "fats");
+        ITEM_DIV.append(fatDiv);
+        let carbDiv = $("<p>").text(" - Carbs (g): " + foodItem.carb);
+        carbDiv.attr("ID", "carbs");
+        ITEM_DIV.append(carbDiv);
+        NUTRI_DIV.append(ITEM_DIV);
+    })
+    renderDrop(searchItem);
 }
 
 // THIS IS A BETA FUNCTION. Currently when the information displays it always displays the entirety of the nutritional information. With this we could display the nutrition for the nutritional section
 // and for the rest of the code we could have it as a drop down so it just looks a little nicer. 
 
-// $('.collapsible').collapsible();
-
-// function renderDrop(searchItem) {
-//     let collapsible = $("<ul>").addClass("collapsible");
-//     let listItem = $("<li>");
-//     collapsible.append(listItem);
-//     let header = $("<div>").addClass("collapsible-header");
-//     header.text(searchItem);
-//     let expandIcon = $("<i>").addClass("material-icons");
-//     expandIcon.text("expand_more");
-//     // might be innerHTML for icon rather than append
-//     header.html(expandIcon);
-//     let body = $("<div>").addClass("collapsible-body");
-//     let span = $("<span>");
-//     span.text("testing")
-//     body.append(span);
-//     collapsible.append(header);
-//     collapsible.append(body);
-//     NUTRI_DIV.append(collapsible);
-// }
-
+function renderDrop(searchItem) {
+    let collapsible = $("<ul>").addClass("collapsible");
+    let listItem = $("<li>");
+    let header = $("<div>").addClass("collapsible-header");
+    let expandIcon = $("<i>").addClass("material-icons");
+    expandIcon.text("expand_more");
+    header.html(expandIcon).append(searchItem);
+    let body = $("<div>").addClass("collapsible-body");
+    let span = $("<span>").text("testing");
+    body.append(span);
+    listItem.append(header);
+    listItem.append(body);
+    collapsible.append(listItem);
+    NUTRI_DIV.append(collapsible);
+    $('.collapsible').collapsible();
+}
 
 // <--- MAIN --->
 
