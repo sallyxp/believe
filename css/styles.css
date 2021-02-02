@@ -83,3 +83,12 @@ img {
     height: 200px;
     width: 400px;
 }
+
+footer {
+    height: 222px;
+}
+
+.footer-copyright {
+    font-size: 8pt;
+    height: 30px;
+}
