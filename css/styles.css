@@ -12,8 +12,13 @@
 
 /* Header/Banner */
 body {
+<<<<<<< HEAD
+    background: url(../img/johannes-plenio-Cropped4-1k-unsplash.JPG);
+    background-size: contain;
+=======
     background: url(../img/johannes-plenio-6XUA5KQ9-1k-unsplash.jpg);
     background-size: cover;
+>>>>>>> staging
     background-position: center;
     min-height: 1300px;
   
@@ -66,10 +71,12 @@ body {
 }
 
 /* Modal Style */
+/*
 .bg-modal {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7);
+    width: 80%;
+    height: 80%;
+   background-color: white;
+   
     position: absolute;
     top: 0;
     display: flex;
@@ -77,27 +84,27 @@ body {
     align-items: center;
     display: none;
 }
-
 .modal-content {
-    width: 700px;
+    width: 80%;
     height: 400px;
-    background-color: #FFECB7;
+    background-color: white;
     border-radius: 10px;
     padding-left: 2%; 
-    padding-right: 2%; 
-    font-family: bradley-hand;
+    padding-right: 2%;
     position: relative;
     box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.8), 0 10px 20px 0 rgba(0, 0, 0, 1);
 }
 
-/* Modal Continue Button */
+
+ Modal Continue Button */
+
 .continue {
    position: absolute;
    bottom: 2%;
    right: 4%;
    cursor: pointer;
 }
-
+*/
 .continue:hover {
     font-weight:900;
 }

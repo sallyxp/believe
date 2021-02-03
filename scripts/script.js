@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
     // Variables
     const SEARCH_INPUT = $('.searchInput');
@@ -13,20 +13,20 @@ $(document).ready(function () {
     const BREAKFAST_ADD_BUTTON = $('.breakfastAdd');
     const LUNCH_ADD_BUTTON = $('.lunchAdd');
     const DINNER_ADD_BUTTON = $('.dinnerAdd');
-    
+
     const BREAKFAST_TOTAL_DIV = $('.breakfastTotal');
     const LUNCH_TOTAL_DIV = $('.lunchTotal');
     const DINNER_TOTAL_DIV = $('.dinnerTotal');
     const BREAKFAST_TOTAL_BUTTON = $('.breakfastTotalBtn');
     const LUNCH_TOTAL_BUTTON = $('.lunchTotalBtn');
     const DINNER_TOTAL_BUTTON = $('.dinnerTotalBtn');
-    
+
     // let BREAKFAST_FOODS_ARR = [];
     // let LUNCH_FOODS_ARR = [];
     // let DINNER_FOODS_ARR = [];
     let DAILY_TOTALS_ARR = [];
 
-    const REMOVE_BUTTON = $('<button>').text("Remove").addClass("remove waves-effect waves-light btn");
+    const REMOVE_BUTTON = $('<button>').text("Remove Item").addClass("remove waves-effect waves-light btn m50 y14");
     let FOOD_ITEMS = JSON.parse(localStorage.getItem('food')) || [];
 
     // Navbar mobile collapse
@@ -36,7 +36,7 @@ $(document).ready(function () {
     $('.bg-modal').css('display', 'flex');
 
     // Modal .onclick close
-    $('.continue').on('click', function () {
+    $('.continue').on('click', function() {
         $('.bg-modal').css('display', 'none');
     })
 
@@ -47,7 +47,7 @@ $(document).ready(function () {
         $.ajax({
             method: 'GET',
             url: 'https://type.fit/api/quotes',
-        }).then(function (a1) {
+        }).then(function(a1) {
             const data = JSON.parse(a1);
             let randomQuote = getRandomArrIndex(data).text;
             $("#modal-motd").html('"' + randomQuote + '"');
@@ -60,7 +60,7 @@ $(document).ready(function () {
     }
 
     // Food item search button
-    SEARCH_BUTTON.on('click', function (event) {
+    SEARCH_BUTTON.on('click', function(event) {
         event.preventDefault();
 
         const searchItem = SEARCH_INPUT.val();
@@ -80,20 +80,20 @@ $(document).ready(function () {
             headers: { 'X-Api-Key': '3qj9IFJLBpOh3lZfWZf3eg==rs8WPl0J1Oz9a9q2' },
             contentType: 'application/json'
         }).
-            then(function (a) {
-                currentFoodObj = {
-                    food: a.items[0].name,
-                    calories: a.items[0].calories,
-                    protein: a.items[0].protein_g,
-                    fat: a.items[0].fat_total_g,
-                    carb: a.items[0].carbohydrates_total_g
-                }
-                renderCurrentNutri(searchedFood);
-            });
+        then(function(a) {
+            currentFoodObj = {
+                food: a.items[0].name,
+                calories: a.items[0].calories,
+                protein: a.items[0].protein_g,
+                fat: a.items[0].fat_total_g,
+                carb: a.items[0].carbohydrates_total_g
+            }
+            renderCurrentNutri(searchedFood);
+        });
     }
 
     // Present searched item to page
-    function renderCurrentNutri(searchItem) {
+    function renderCurrentNutri() {
         ITEM_DIV.empty();
         let CURRENT_FOODS = [];
         CURRENT_FOODS.push(currentFoodObj);
@@ -126,18 +126,18 @@ $(document).ready(function () {
     BREAKFAST_ADD_BUTTON.on('click', function() {
         copyAppend(ITEM_DIV, BREAKFAST_DIV);
         DAILY_TOTALS_ARR.push(currentFoodObj);
-        console.log("Add to array: ", DAILY_TOTALS_ARR);
-        
+        // console.log("Add to array: ", DAILY_TOTALS_ARR);
+
     });
 
     LUNCH_ADD_BUTTON.on('click', function() {
         copyAppend(ITEM_DIV, LUNCH_DIV);
-       
+        DAILY_TOTALS_ARR.push(currentFoodObj);
     });
 
     DINNER_ADD_BUTTON.on('click', function() {
         copyAppend(ITEM_DIV, DINNER_DIV);
-        
+        DAILY_TOTALS_ARR.push(currentFoodObj);
     });
 
     $("div").on('click', ".remove", function(event) {
@@ -145,16 +145,16 @@ $(document).ready(function () {
 
         var foodID = $(this).parent().attr("data-food");
         // console.log("Food ID: ", foodID);
-        
-        $.each(DAILY_TOTALS_ARR, function (key, value) {
+
+        $.each(DAILY_TOTALS_ARR, function(key, value) {
             // console.log("Food Value: ", value);
             if (value.food == foodID) {
                 foodIDKey = key;
-            }    
-        }); 
+            }
+        });
 
-        DAILY_TOTALS_ARR.splice(foodIDKey, 1); 
-        
+        DAILY_TOTALS_ARR.splice(foodIDKey, 1);
+
         // console.log("Post Remove: ", DAILY_TOTALS_ARR);
 
         $(this).parent().remove();
