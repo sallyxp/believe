@@ -1,55 +1,75 @@
 /* Site Font */
-
 @font-face {
     font-family: "bradley-hand";
     src: url(../font/BRADHITC.TTF);
 }
 
-
 /* Brand Logo */
-
 .brand {
     font-family: bradley-hand;
     font-weight: bold;
 }
 
-body {
-    background: url(../img/james-lewis-xmhS87aA7tQ-unsplash.jpg);
-    background-size: cover;
-    background-position: center;
-    min-height: 1300px;
-}
-
-
 /* Header/Banner */
-
-
-/* header {
-    background: url(../img/james-lewis-xmhS87aA7tQ-unsplash.jpg);
+body {
+    background: url(../img/johannes-plenio-6XUA5KQ9-1k-unsplash.jpg);
     background-size: cover;
     background-position: center;
     min-height: 1300px;
-} */
-
-@media screen and (max-width: 1024px) {
-    header {
+  
+}
+@media screen and (max-width: 1024px){
+    body{
         min-height: 1400px;
     }
 }
-
-@media screen and (max-width: 670px) {
-    header {
+@media screen and (max-width: 670px){
+    body{
         min-height: 900px;
     }
 }
 
+/* Welcome Message on home page */
+#welcome-msg {
+    padding: 2.5%;
+    background: url(../img/nathan-anderson-GM5Yn5XRVqA-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Home page body contents */
+.mental-health {
+    background: url(../img/tim-mossholder-8R-mXppeakM-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 10%;
+    font-size: 14pt;
+    font-weight: 700;
+}
+
+.diet {
+    background: url(../img/dylan-nolte-hJBgMJgswrY-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 10%;
+    font-size: 14pt;
+    font-weight: 700;
+}
+
+.fitness {
+    background: url(../img/dane-wetton-AkSJQnem75Y-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 10%;
+    font-size: 14pt;
+    font-weight: 700;
+}
 
 /* Modal Style */
-
 .bg-modal {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0,0,0,0.7);
     position: absolute;
     top: 0;
     display: flex;
@@ -63,23 +83,40 @@ body {
     height: 400px;
     background-color: #FFECB7;
     border-radius: 10px;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-left: 2%; 
+    padding-right: 2%; 
     font-family: bradley-hand;
     position: relative;
     box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.8), 0 10px 20px 0 rgba(0, 0, 0, 1);
 }
 
-
 /* Modal Continue Button */
-
 .continue {
-    position: absolute;
-    bottom: 2%;
-    right: 4%;
-    cursor: pointer;
+   position: absolute;
+   bottom: 2%;
+   right: 4%;
+   cursor: pointer;
 }
 
 .continue:hover {
-    font-weight: 900;
+    font-weight:900;
 }
+
+img {
+    height: 200px;
+    width: 300px;
+}
+
+.well-being {
+    height: 200px;
+    width: 400px;
+}
+
+/* footer {
+    height: 222px;
+}
+
+.footer-copyright {
+    font-size: 8pt;
+    height: 30px;
+} */
