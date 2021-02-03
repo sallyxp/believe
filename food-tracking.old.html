@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/materialize.min.css">
     <!-- Local CSS Styles -->
     <link rel="stylesheet" href="css/styles.css" />
-    <title>Food Weekly History</title>
+    <title>Food Tracking</title>
 </head>
 
 <body>
@@ -44,12 +44,36 @@
 
     </nav>
 
+    <div class="container">
+        <input type="text" class="searchInput" placeholder="Search food here...">
+        <button type="submit" class="searchButton waves-effect waves-light btn">Search</button>
 
-    <!-- Body content here -->
-    <div class="container green lighten-2">
-
+        <button class="nutriAdd waves-effect waves-light btn">Add</button>
+        <div class="nutri"></div>
+        <!-- Will contain meals made up of the individual items added from search -->
+        <h4>Meals...</h4>
+        <button class="mealAdd waves-effect waves-light btn">Add</button>
+        <button class="mealTotalBtn waves-effect waves-light btn">Calculate</button>
+        <div class="meal"></div>
+        <div class="mealTotal">
+            <h6></h6>
+        </div>
+        <!-- Will contain daily food intake made up of meals added from the meal section -->
+        <h4>Daily...</h4>
+        <button class="dayAdd waves-effect waves-light btn">Add</button>
+        <button class="dayTotalBtn waves-effect waves-light btn">Calculate</button>
+        <div class="daily"></div>
+        <div class="dailyTotal">
+            <h6></h6>
+        </div>
+        <!-- Will contain weekly food intake made up of days added from the daily section -->
+        <h4>Weekly...</h4>
+        <button class="weekTotalBtn waves-effect waves-light btn">Calculate</button>
+        <div class="weekly"></div>
+        <div class="weeklyTotal">
+            <h6></h6>
+        </div>
     </div>
-
 
     <!-- Footer here -->
     <footer class="page-footer blue darken-4" style="position:fixed;bottom:0;left:0;width:100%;">
