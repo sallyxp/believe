@@ -126,7 +126,7 @@ $(document).ready(function() {
     BREAKFAST_ADD_BUTTON.on('click', function() {
         copyAppend(ITEM_DIV, BREAKFAST_DIV);
         DAILY_TOTALS_ARR.push(currentFoodObj);
-        console.log("Add to array: ", DAILY_TOTALS_ARR);
+        // console.log("Add to array: ", DAILY_TOTALS_ARR);
 
     });
 
