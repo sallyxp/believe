@@ -3,6 +3,8 @@ var addBtn = document.querySelector("#add-btn");
 var goalList = document.querySelector("#goal-list");
 
 var goals = [];
+localStorage.setItem("goals", JSON.stringify(goals));
+var storedGoals = JSON.parse(localStorage.getItem("goals"));
 
 renderGoals();
 
