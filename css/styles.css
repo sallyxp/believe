@@ -12,13 +12,8 @@
 
 /* Header/Banner */
 body {
-<<<<<<< HEAD
     background: url(../img/johannes-plenio-Cropped4-1k-unsplash.JPG);
     background-size: contain;
-=======
-    background: url(../img/johannes-plenio-6XUA5KQ9-1k-unsplash.jpg);
-    background-size: cover;
->>>>>>> staging
     background-position: center;
     min-height: 1300px;
   
