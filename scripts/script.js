@@ -24,11 +24,6 @@ let WEEKLY_FOODS_ARR = [];
 
 // <--- FUNCTIONS --->
 
-function spliceItem(ARR, This) {
-    index = ARR.indexOf(This);
-    ARR.splice(index, 1);
-}
-
 function getRandomArrIndex(array) {
     let index = Math.floor(Math.random() * array.length);
     return array[index]
@@ -80,22 +75,22 @@ function renderCurrentNutri(searchItem) {
 // THIS IS A BETA FUNCTION. Currently when the information displays it always displays the entirety of the nutritional information. With this we could display the nutrition for the nutritional section
 // and for the rest of the code we could have it as a drop down so it just looks a little nicer. 
 
-function renderDrop(searchItem) {
-    let collapsible = $("<ul>").addClass("collapsible");
-    let listItem = $("<li>");
-    let header = $("<div>").addClass("collapsible-header");
-    let expandIcon = $("<i>").addClass("material-icons");
-    expandIcon.text("expand_more");
-    header.html(expandIcon).append(searchItem);
-    let body = $("<div>").addClass("collapsible-body");
-    let span = $("<span>").text("testing");
-    body.append(span);
-    listItem.append(header);
-    listItem.append(body);
-    collapsible.append(listItem);
-    NUTRI_DIV.append(collapsible);
-    $('.collapsible').collapsible();
-}
+// function renderDrop(searchItem) {
+//     let collapsible = $("<ul>").addClass("collapsible");
+//     let listItem = $("<li>");
+//     let header = $("<div>").addClass("collapsible-header");
+//     let expandIcon = $("<i>").addClass("material-icons");
+//     expandIcon.text("expand_more");
+//     header.html(expandIcon).append(searchItem);
+//     let body = $("<div>").addClass("collapsible-body");
+//     let span = $("<span>").text("testing");
+//     body.append(span);
+//     listItem.append(header);
+//     listItem.append(body);
+//     collapsible.append(listItem);
+//     NUTRI_DIV.append(collapsible);
+//     $('.collapsible').collapsible();
+// }
 
 // <--- MAIN --->
 
@@ -189,13 +184,14 @@ WEEK_TOTAL_BUTTON.on('click', function() {
 
 $("div").on('click', ".remove", function() {
     $(this).parent().remove();
-    // let index = MEAL_FOODS_ARR.indexOf($(this));
-    // console.log(index);
-    // spliceItem(MEAL_FOODS_ARR, $(this).parent());
-
-    // MEAL_FOODS_ARR.splice(MEAL_FOODS_ARR.indexOf($(this)), 1);
-    // let test = $(this).parent().index();
-    // console.log(test);
 })
+
+// let index = MEAL_FOODS_ARR.indexOf($(this));
+// console.log(index);
+// spliceItem(MEAL_FOODS_ARR, $(this).parent());
+
+// MEAL_FOODS_ARR.splice(MEAL_FOODS_ARR.indexOf($(this)), 1);
+// let test = $(this).parent().index();
+// console.log(test);
 
 // MEAL_FOODS_ARR.splice($.inArray(removeItem, MEAL_FOODS_ARR), $(this));
