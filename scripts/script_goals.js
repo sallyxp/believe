@@ -1,6 +1,6 @@
-var goalInput = $("#my_goal");
-var addBtn = $("#add-btn");
-var goalList = $("#goal-list");
+var goalInput = document.querySelector("#my_goal");
+var addBtn = document.querySelector("#add-btn");
+var goalList = document.querySelector("#goal-list");
 
 var goals = [];
 
@@ -12,7 +12,7 @@ function renderGoals() {
 
         var li = $("<li>");
         console.log(li);
-        li.textContent = goal;
+        li.innerText = goal;
         li.attr("data-index", i);
         var achieveBtn = $("<button>");
         achieveBtn.textContent = "Achieved";
@@ -21,27 +21,27 @@ function renderGoals() {
     }
 }
 
-addBtn.on("click", function (event) {
+addBtn.addEventListener("click", function (event) {
     event.preventDefault();
 
-    console.log(goalInput.val());
-    var goalText = goalInput.val().trim();
+    console.log(goalInput.value);
+    var goalText = goalInput.value.trim();
 
     if (goalText === "") {
         return;
     }
 
     goals.push(goalText);
-    goalInput.val("");
+    goalInput.value;
 
     renderGoals();
 })
 
-goalList.on("click", function (event) {
+goalList.addEventListener("click", function (event) {
     var element = event.target;
 
     if (element.matches("button") === true) {
-        var index = element.parentElement.attr("data-index");
+        var index = element.parentElement.getAttribute("data-index");
         goals.splice(index, 1);
 
 
