@@ -21,6 +21,9 @@ $(document).ready(function() {
     const LUNCH_TOTAL_BUTTON = $('.lunchTotalBtn');
     const DINNER_TOTAL_BUTTON = $('.dinnerTotalBtn');
 
+    // let BREAKFAST_FOODS_ARR = [];
+    // let LUNCH_FOODS_ARR = [];
+    // let DINNER_FOODS_ARR = [];
     let DAILY_TOTALS_ARR = [];
 
     const REMOVE_BUTTON = $('<button>').text("Remove Item").addClass("remove waves-effect waves-light btn m50 y14");
@@ -109,7 +112,7 @@ $(document).ready(function() {
             ITEM_DIV.append(fatDiv);
             let carbDiv = $("<p>").text(" - Carbs (g): " + foodItem.carb);
             carbDiv.attr("ID", "carbs");
-            ITEM_DIV.attr("data-food", currentFoodObj.food)
+            ITEM_DIV.attr("data-food", currentFoodObj.food);
             ITEM_DIV.append(carbDiv);
             NUTRI_DIV.append(ITEM_DIV);
         });
@@ -122,11 +125,9 @@ $(document).ready(function() {
 
     BREAKFAST_ADD_BUTTON.on('click', function() {
         copyAppend(ITEM_DIV, BREAKFAST_DIV);
-        // DAILY_TOTALS_ARR.push(currentFoodObj); ORIGINAL
+        DAILY_TOTALS_ARR.push(currentFoodObj);
+        console.log("Add to array: ", DAILY_TOTALS_ARR);
 
-        DAILY_TOTALS_ARR.push({ ITEM_DIV: currentFoodObj });
-        // console.log(currentFoodObj);
-        console.log(DAILY_TOTALS_ARR);
     });
 
     LUNCH_ADD_BUTTON.on('click', function() {
@@ -139,8 +140,23 @@ $(document).ready(function() {
         DAILY_TOTALS_ARR.push(currentFoodObj);
     });
 
-    $("div").on('click', ".remove", function() {
+    $("div").on('click', ".remove", function(event) {
+        event.preventDefault();
 
+        var foodID = $(this).parent().attr("data-food");
+        // console.log("Food ID: ", foodID);
+
+        $.each(DAILY_TOTALS_ARR, function(key, value) {
+            // console.log("Food Value: ", value);
+            if (value.food == foodID) {
+                foodIDKey = key;
+            }
+        });
+
+        DAILY_TOTALS_ARR.splice(foodIDKey, 1);
+
+        // console.log("Post Remove: ", DAILY_TOTALS_ARR);
+
+        $(this).parent().remove();
     });
-
 });
