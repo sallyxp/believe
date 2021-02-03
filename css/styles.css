@@ -12,8 +12,13 @@
 
 /* Header/Banner */
 body {
+<<<<<<< HEAD
     background: url(../img/johannes-plenio-Cropped4-1k-unsplash.JPG);
     background-size: contain;
+=======
+    background: url(../img/johannes-plenio-6XUA5KQ9-1k-unsplash.jpg);
+    background-size: cover;
+>>>>>>> staging
     background-position: center;
     min-height: 1300px;
   
@@ -29,9 +34,40 @@ body {
     }
 }
 
-/* Welcome Message on Home Page */
+/* Welcome Message on home page */
 #welcome-msg {
     padding: 2.5%;
+    background: url(../img/nathan-anderson-GM5Yn5XRVqA-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Home page body contents */
+.mental-health {
+    background: url(../img/tim-mossholder-8R-mXppeakM-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 10%;
+    font-size: 14pt;
+    font-weight: 700;
+}
+
+.diet {
+    background: url(../img/dylan-nolte-hJBgMJgswrY-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 10%;
+    font-size: 14pt;
+    font-weight: 700;
+}
+
+.fitness {
+    background: url(../img/dane-wetton-AkSJQnem75Y-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 10%;
+    font-size: 14pt;
+    font-weight: 700;
 }
 
 /* Modal Style */
@@ -72,3 +108,22 @@ body {
 .continue:hover {
     font-weight:900;
 }
+
+img {
+    height: 200px;
+    width: 300px;
+}
+
+.well-being {
+    height: 200px;
+    width: 400px;
+}
+
+/* footer {
+    height: 222px;
+}
+
+.footer-copyright {
+    font-size: 8pt;
+    height: 30px;
+} */
