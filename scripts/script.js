@@ -144,17 +144,18 @@ $(document).ready(function () {
         event.preventDefault();
 
         var foodID = $(this).parent().attr("data-food");
-        console.log("Food ID: ", foodID);
+        // console.log("Food ID: ", foodID);
         
-
         $.each(DAILY_TOTALS_ARR, function (key, value) {
-            console.log("Food Value: ", value);
+            // console.log("Food Value: ", value);
             if (value.food == foodID) {
-                DAILY_TOTALS_ARR.splice(value.food, 1); 
+                foodIDKey = key;
             }    
         }); 
+
+        DAILY_TOTALS_ARR.splice(foodIDKey, 1); 
         
-        console.log("Post Remove: ", DAILY_TOTALS_ARR);
+        // console.log("Post Remove: ", DAILY_TOTALS_ARR);
 
         $(this).parent().remove();
     });
