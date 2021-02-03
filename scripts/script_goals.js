@@ -3,18 +3,22 @@ var addBtn = document.querySelector("#add-btn");
 var goalList = document.querySelector("#goal-list");
 
 var goals = [];
+localStorage.setItem("goals", JSON.stringify(goals));
+var storedGoals = JSON.parse(localStorage.getItem("goals"));
 
 renderGoals();
 
 function renderGoals() {
+    goalList.innerHTML = "";
+
     for (var i = 0; i < goals.length; i++) {
         var goal = goals[i];
 
-        var li = $("<li>");
-        console.log(li);
+        var li = document.createElement("li");
         li.innerText = goal;
-        li.attr("data-index", i);
-        var achieveBtn = $("<button>");
+        console.log(li);
+        li.setAttribute("data-index", i);
+        var achieveBtn = document.createElement("button");
         achieveBtn.textContent = "Achieved";
         li.append(achieveBtn);
         goalList.append(li);
