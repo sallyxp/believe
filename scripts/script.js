@@ -21,10 +21,10 @@ $(document).ready(function () {
     const LUNCH_TOTAL_BUTTON = $('.lunchTotalBtn');
     const DINNER_TOTAL_BUTTON = $('.dinnerTotalBtn');
     
-    let BREAKFAST_FOODS_ARR = [];
-    let LUNCH_FOODS_ARR = [];
-    let DINNER_FOODS_ARR = [];
-    let DAILY_FOODS_ARR = [];
+    // let BREAKFAST_FOODS_ARR = [];
+    // let LUNCH_FOODS_ARR = [];
+    // let DINNER_FOODS_ARR = [];
+    let DAILY_TOTALS_ARR = [];
 
     const REMOVE_BUTTON = $('<button>').text("Remove").addClass("remove waves-effect waves-light btn");
     let FOOD_ITEMS = JSON.parse(localStorage.getItem('food')) || [];
@@ -97,8 +97,9 @@ $(document).ready(function () {
         ITEM_DIV.empty();
         let CURRENT_FOODS = [];
         CURRENT_FOODS.push(currentFoodObj);
+        ITEM_DIV.append(REMOVE_BUTTON);
         CURRENT_FOODS.forEach(foodItem => {
-            let foodNameDiv = $("<p>").text(searchItem);
+            let foodNameDiv = $("<p>").text(foodItem.food);
             ITEM_DIV.append(foodNameDiv);
             let caloriesDiv = $("<p>").text(" - Calories (kcal): " + foodItem.calories);
             caloriesDiv.attr("ID", "calories");
@@ -111,6 +112,7 @@ $(document).ready(function () {
             ITEM_DIV.append(fatDiv);
             let carbDiv = $("<p>").text(" - Carbs (g): " + foodItem.carb);
             carbDiv.attr("ID", "carbs");
+            ITEM_DIV.attr("data-food", currentFoodObj.food);
             ITEM_DIV.append(carbDiv);
             NUTRI_DIV.append(ITEM_DIV);
         });
@@ -123,6 +125,8 @@ $(document).ready(function () {
 
     BREAKFAST_ADD_BUTTON.on('click', function() {
         copyAppend(ITEM_DIV, BREAKFAST_DIV);
+        DAILY_TOTALS_ARR.push(currentFoodObj);
+        console.log("Add to array: ", DAILY_TOTALS_ARR);
         
     });
 
@@ -136,5 +140,22 @@ $(document).ready(function () {
         
     });
 
+    $("div").on('click', ".remove", function(event) {
+        event.preventDefault();
 
+        var foodID = $(this).parent().attr("data-food");
+        console.log("Food ID: ", foodID);
+        
+
+        $.each(DAILY_TOTALS_ARR, function (key, value) {
+            console.log("Food Value: ", value);
+            if (value.food == foodID) {
+                DAILY_TOTALS_ARR.splice(value.food, 1); 
+            }    
+        }); 
+        
+        console.log("Post Remove: ", DAILY_TOTALS_ARR);
+
+        $(this).parent().remove();
+    });
 });
