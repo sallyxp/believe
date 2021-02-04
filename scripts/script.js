@@ -79,8 +79,13 @@ $(document).ready(function() {
     // Navbar mobile collapse
     $('.sidenav').sidenav();
 
-    // Modal load
+    // Inspiration Modal load
     $('.modal').modal();
+
+    // Food Modal .onclick close
+    $('.food-modal-button').on('click', function() {
+        $('.food-modal').css('display', 'none');
+    })
 
     // <--- MAIN --->
     // Modal inspiration quote functions
@@ -125,7 +130,7 @@ $(document).ready(function() {
 
         const searchItem = SEARCH_INPUT.val();
         if (searchItem === "") {
-            alert("You must enter a food item");
+            $('.food-modal').css('display', 'flex');
             return;
         }
         SEARCH_INPUT.val("");
