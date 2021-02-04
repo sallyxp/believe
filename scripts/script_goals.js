@@ -1,20 +1,29 @@
+//Define the variables
 var goalInput = document.querySelector("#my_goal");
 var addBtn = document.querySelector("#add-btn");
 var goalList = document.querySelector("#goal-list");
 
+
+// Get stored items (goals) from local storage
+// OR define new goal
 var storedGoals = JSON.parse(localStorage.getItem("goals")) || [];
 
-renderGoals();
 
+// Call the function "renderGoals()"; to append goals to list, along with an "Achieved" button
+renderGoals(); // List will return empty if local storage contains no values
+
+
+// Declare the function
 function renderGoals() {
     goalList.innerHTML = "";
 
+
+    // Loop through the list of goals to render a new li for each goal
     for (var i = 0; i < storedGoals.length; i++) {
         var goal = storedGoals[i];
 
         var li = document.createElement("li");
         li.innerText = goal;
-        console.log(li);
         li.setAttribute("data-index", i);
         var achieveBtn = document.createElement("button");
         achieveBtn.textContent = "Achieved";
@@ -24,10 +33,11 @@ function renderGoals() {
     }
 }
 
+
+// Add event listener to "Add Goal" button; to add goal to list
 addBtn.addEventListener("click", function (event) {
     event.preventDefault();
 
-    console.log(goalInput.value);
     var goalText = goalInput.value.trim();
 
     if (goalText === "") {
@@ -38,10 +48,12 @@ addBtn.addEventListener("click", function (event) {
     localStorage.setItem("goals", JSON.stringify(storedGoals));
     goalInput.value;
 
-    renderGoals();
+    renderGoals(); // Call function here again because it is a result of the click event
     goalInput.value = "";
 })
 
+
+// Add event listener to "Achieved" button; to remove goal from list
 goalList.addEventListener("click", function (event) {
     var element = event.target;
 
@@ -50,6 +62,6 @@ goalList.addEventListener("click", function (event) {
         storedGoals.splice(index, 1);
         localStorage.setItem("goals", JSON.stringify(storedGoals));
 
-        renderGoals();
+        renderGoals(); // Call function here again because the list item needs to disappear on clicking the button
     }
 })
