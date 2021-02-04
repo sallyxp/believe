@@ -111,11 +111,9 @@ SR - This isn't wanted?
 }
 
 
-/* Modal Style */
+/* Food Modal */
 
-
-/* .bg-modal {
-   
+.food-modal {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -124,7 +122,31 @@ SR - This isn't wanted?
     justify-content: center;
     align-items: center;
     display: none;
-} */
+}
+
+.food-modal-content {
+    width: 600px;
+    height: 150px;
+    background-color: #1B5E20;
+    color: #eee;
+    z-index: 1;
+    border-radius: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-family: bradley-hand;
+    position: relative;
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.8), 0 10px 20px 0 rgba(0, 0, 0, 1);
+}
+
+.food-modal-button {
+    position: absolute;
+    bottom: 25%;
+    right: 45%;
+    cursor: pointer;
+}
+
+
+/* Inspiration Modal */
 
 .modal-content {
     height: 400px;
@@ -170,12 +192,10 @@ SR - This isn't wanted?
     background-size: cover;
 }
 
-
-/* footer {
-    height: 20px;
+footer {
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
-
-.footer-copyright {
-    font-size: 8pt;
-    height: 30px;
-}  */
