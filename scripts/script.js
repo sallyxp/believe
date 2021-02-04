@@ -32,13 +32,13 @@ $(document).ready(function() {
     // Navbar mobile collapse
     $('.sidenav').sidenav();
 
-    // Modal load
-    $('.bg-modal').css('display', 'flex');
+    // Modal button
+    $('.modal').modal();
 
-    // Modal .onclick close
-    $('.continue').on('click', function() {
-        $('.bg-modal').css('display', 'none');
-    })
+    // // Modal .onclick close
+    // $('.continue').on('click', function() {
+    //     $('.bg-modal').css('display', 'none');
+    // })
 
     // Modal inspiration quote functions
     getInspiration();
