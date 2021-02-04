@@ -5,7 +5,7 @@ $(document).ready(function() {
     // INPUT
     const SEARCH_INPUT = $('.searchInput');
     // DIVS
-    const ITEM_DIV = $('<div>');
+    const ITEM_DIV = $('<div>').addClass("itemDiv card blue-grey darken-1 card-content white-text text-flow col s4 m2");
     const NUTRI_DIV = $('.nutri');
     const BREAKFAST_DIV = $('.breakfast');
     const LUNCH_DIV = $('.lunch');
@@ -34,7 +34,7 @@ $(document).ready(function() {
             fatSum += foodItem.fat;
             carbSum += foodItem.carb;
         })
-        const String = `Cal: ${calorieSum}, Pro: ${proteinSum}, Fat: ${fatSum}, Carb: ${carbSum}`
+        const String = `Calories: ${calorieSum.toFixed(2)} (kcal), Protein: ${proteinSum.toFixed(2)} (g), Fat: ${fatSum.toFixed(2)} (g), Carbs: ${carbSum.toFixed(2)} (g)`
         DIV.html(String);
     }
 
@@ -43,25 +43,21 @@ $(document).ready(function() {
         ITEM_DIV.empty();
         let CURRENT_FOODS = [];
         CURRENT_FOODS.push(currentFoodObj);
-        ITEM_DIV.append(REMOVE_BUTTON);
         CURRENT_FOODS.forEach(foodItem => {
-            let foodNameDiv = $("<p>").text(foodItem.food);
+            let foodNameDiv = $("<h6>").text(foodItem.food);
             ITEM_DIV.append(foodNameDiv);
-            let caloriesDiv = $("<p>").text(" - Calories (kcal): " + foodItem.calories);
-            caloriesDiv.attr("ID", "calories");
+            let caloriesDiv = $("<p>").text(" - Calories: " + foodItem.calories + " (kcal)");
             ITEM_DIV.append(caloriesDiv);
-            let proteinDiv = $("<p>").text(" - Protein (g): " + foodItem.protein);
-            proteinDiv.attr("ID", "protein");
+            let proteinDiv = $("<p>").text(" - Protein: " + foodItem.protein + " (g)");
             ITEM_DIV.append(proteinDiv);
-            let fatDiv = $("<p>").text(" - Fat (g): " + foodItem.fat);
-            fatDiv.attr("ID", "fats");
+            let fatDiv = $("<p>").text(" - Fat: " + foodItem.fat + " (g)");
             ITEM_DIV.append(fatDiv);
-            let carbDiv = $("<p>").text(" - Carbs (g): " + foodItem.carb);
-            carbDiv.attr("ID", "carbs");
+            let carbDiv = $("<p>").text(" - Carbs: " + foodItem.carb + " (g)");
             ITEM_DIV.attr("data-food", currentFoodObj.food);
             ITEM_DIV.append(carbDiv);
             NUTRI_DIV.append(ITEM_DIV);
         });
+        ITEM_DIV.append(REMOVE_BUTTON);
     }
 
     // Add Food Item buttons for breakfast, Lunch & Dinner
