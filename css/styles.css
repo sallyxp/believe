@@ -199,3 +199,13 @@ footer {
     left: 0;
     width: 100%;
 }
+
+.achv-btn {
+    position: absolute;
+    right: 0px;
+    top: 4.5px;
+}
+
+.li-card {
+    padding: 1%;
+}
