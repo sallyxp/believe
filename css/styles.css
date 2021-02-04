@@ -11,7 +11,7 @@
 }
 
 /* Header/Banner */
-body {
+/* body {
     background: url(../img/johannes-plenio-Cropped4-1k-unsplash.JPG);
     background-size: contain;
     background-position: center;
@@ -27,19 +27,31 @@ body {
     body{
         min-height: 900px;
     }
-}
+} */
 
-/* Welcome Message on home page */
+/* Header/Banner */
+/* .photos {
+       background: url(../img/johannes-plenio-Cropped4-1k-unsplash.JPG);
+      background-size: cover;
+        background-position: center;
+        min-height: 1300px;
+      
+    } */
+
+
+
+/* Welcome Message on home page 
+SR - This isn't wanted?
 #welcome-msg {
     padding: 2.5%;
     background: url(../img/nathan-anderson-GM5Yn5XRVqA-unsplash.jpg);
     background-size: cover;
     background-position: center;
 }
-
+*/
 /* Home page body contents */
 .mental-health {
-    background: url(../img/tim-mossholder-8R-mXppeakM-unsplash.jpg);
+   background: url(../img/tim-mossholder-8R-mXppeakM-unsplash.jpg);
     background-size: cover;
     background-position: center;
     padding: 10%;
@@ -66,59 +78,70 @@ body {
 }
 
 /* Modal Style */
-/*
-.bg-modal {
-    width: 80%;
-    height: 80%;
-   background-color: white;
+
+/* .bg-modal {
    
+    height: 100%;
+    width: 100%;
     position: absolute;
     top: 0;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     display: none;
-}
+} */
+
 .modal-content {
-    width: 80%;
+    
     height: 400px;
-    background-color: white;
+    width: 100%;
+    opacity: 90%;
+    background-color: rgba(205, 221, 61, 0.932);
     border-radius: 10px;
-    padding-left: 2%; 
-    padding-right: 2%;
+    justify-content: center;  
+    border: black solid;
     position: relative;
-    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.8), 0 10px 20px 0 rgba(0, 0, 0, 1);
+    
 }
 
-
- Modal Continue Button */
+/* 
+ Modal Continue Button
 
 .continue {
    position: absolute;
    bottom: 2%;
    right: 4%;
    cursor: pointer;
-}
-*/
-.continue:hover {
-    font-weight:900;
-}
+} */
 
-img {
-    height: 200px;
-    width: 300px;
+/* .continue:hover {
+    font-weight:900;
+} */
+
+.img {
+    height: 180px;
+    width: 100%;
+    background-size: cover;  
 }
 
 .well-being {
-    height: 200px;
-    width: 400px;
+    height: 100px;
+    width: 40%;
 }
 
-/* footer {
-    height: 222px;
+
+.section{
+    width: 100%;
+    Height: 30%;
+    background-size: cover;
+}
+
+
+ /* footer {
+    height: 20px;
 }
 
 .footer-copyright {
     font-size: 8pt;
     height: 30px;
-} */
+}  */
