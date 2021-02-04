@@ -1,95 +1,41 @@
 $(document).ready(function() {
 
-    // Variables
+    // <--- VARIABLES --->
+
+    // INPUT
     const SEARCH_INPUT = $('.searchInput');
-    const SEARCH_BUTTON = $('.searchButton');
+    // DIVS
     const ITEM_DIV = $('<div>');
     const NUTRI_DIV = $('.nutri');
-
-    // Meal Variables
     const BREAKFAST_DIV = $('.breakfast');
     const LUNCH_DIV = $('.lunch');
     const DINNER_DIV = $('.dinner');
+    // BUTTONS
+    const SEARCH_BUTTON = $('.searchButton');
+    const REMOVE_BUTTON = $('<button>').text("Remove Item").addClass("remove waves-effect waves-light btn m50 y14");
     const BREAKFAST_ADD_BUTTON = $('.breakfastAdd');
     const LUNCH_ADD_BUTTON = $('.lunchAdd');
     const DINNER_ADD_BUTTON = $('.dinnerAdd');
-
-    const BREAKFAST_TOTAL_DIV = $('.breakfastTotal');
-    const LUNCH_TOTAL_DIV = $('.lunchTotal');
-    const DINNER_TOTAL_DIV = $('.dinnerTotal');
-    const BREAKFAST_TOTAL_BUTTON = $('.breakfastTotalBtn');
-    const LUNCH_TOTAL_BUTTON = $('.lunchTotalBtn');
-    const DINNER_TOTAL_BUTTON = $('.dinnerTotalBtn');
-
-    // let BREAKFAST_FOODS_ARR = [];
-    // let LUNCH_FOODS_ARR = [];
-    // let DINNER_FOODS_ARR = [];
+    const DAY_TOTAL_BUTTON = $('.dayTotalBtn');
+    const DAY_TOTAL_DIV = $('.dayTotal');
+    // ARRAYS
     let DAILY_TOTALS_ARR = [];
 
-    const REMOVE_BUTTON = $('<button>').text("Remove Item").addClass("remove waves-effect waves-light btn m50 y14");
-    let FOOD_ITEMS = JSON.parse(localStorage.getItem('food')) || [];
+    // <--- FUNCTIONS --->
 
-    // Navbar mobile collapse
-    $('.sidenav').sidenav();
-
-    // Modal button
-    $('.modal').modal();
-
-    // // Modal .onclick close
-    // $('.continue').on('click', function() {
-    //     $('.bg-modal').css('display', 'none');
-    // })
-
-    // Modal inspiration quote functions
-    getInspiration();
-
-    function getInspiration() {
-        $.ajax({
-            method: 'GET',
-            url: 'https://type.fit/api/quotes',
-        }).then(function(a1) {
-            const data = JSON.parse(a1);
-            let randomQuote = getRandomArrIndex(data).text;
-            $("#modal-motd").html('"' + randomQuote + '"');
-        });
-    }
-
-    function getRandomArrIndex(array) {
-        let index = Math.floor(Math.random() * array.length);
-        return array[index];
-    }
-
-    // Food item search button
-    SEARCH_BUTTON.on('click', function(event) {
-        event.preventDefault();
-
-        const searchItem = SEARCH_INPUT.val();
-        if (searchItem === "") {
-            alert("You must enter a food item");
-            return;
-        }
-        $("input[type=text], searchInput").val("");
-        getNutrition(searchItem);
-    })
-
-    // Food item API
-    function getNutrition(searchedFood) {
-        $.ajax({
-            method: 'GET',
-            url: 'https://api.calorieninjas.com/v1/nutrition?query=' + searchedFood,
-            headers: { 'X-Api-Key': '3qj9IFJLBpOh3lZfWZf3eg==rs8WPl0J1Oz9a9q2' },
-            contentType: 'application/json'
-        }).
-        then(function(a) {
-            currentFoodObj = {
-                food: a.items[0].name,
-                calories: a.items[0].calories,
-                protein: a.items[0].protein_g,
-                fat: a.items[0].fat_total_g,
-                carb: a.items[0].carbohydrates_total_g
-            }
-            renderCurrentNutri(searchedFood);
-        });
+    function getTotal(ARRAY, DIV) {
+        let calorieSum = 0;
+        let proteinSum = 0;
+        let fatSum = 0;
+        let carbSum = 0;
+        ARRAY.forEach(foodItem => {
+            calorieSum += foodItem.calories;
+            proteinSum += foodItem.protein;
+            fatSum += foodItem.fat;
+            carbSum += foodItem.carb;
+        })
+        const String = `Cal: ${calorieSum}, Pro: ${proteinSum}, Fat: ${fatSum}, Carb: ${carbSum}`
+        DIV.html(String);
     }
 
     // Present searched item to page
@@ -123,11 +69,72 @@ $(document).ready(function() {
         targetDiv.append(cloneItem.clone(true, true));
     }
 
+    function getRandomArrIndex(array) {
+        let index = Math.floor(Math.random() * array.length);
+        return array[index];
+    }
+
+    // <--- MAIN --->
+
+    // Navbar mobile collapse
+    $('.sidenav').sidenav();
+
+    // Modal load
+    $('.modal').modal();
+
+    // <--- MAIN --->
+    // Modal inspiration quote functions
+    getInspiration();
+
+    function getInspiration() {
+        $.ajax({
+            method: 'GET',
+            url: 'https://type.fit/api/quotes',
+        }).then(function(a1) {
+            const data = JSON.parse(a1);
+            let randomQuote = getRandomArrIndex(data).text;
+            $("#modal-motd").html('"' + randomQuote + '"');
+        });
+    }
+
+    // Food item API
+    function getNutrition(searchedFood) {
+        $.ajax({
+            method: 'GET',
+            url: 'https://api.calorieninjas.com/v1/nutrition?query=' + searchedFood,
+            headers: { 'X-Api-Key': '3qj9IFJLBpOh3lZfWZf3eg==rs8WPl0J1Oz9a9q2' },
+            contentType: 'application/json'
+        }).
+        then(function(a) {
+            currentFoodObj = {
+                food: a.items[0].name,
+                calories: a.items[0].calories,
+                protein: a.items[0].protein_g,
+                fat: a.items[0].fat_total_g,
+                carb: a.items[0].carbohydrates_total_g
+            }
+            renderCurrentNutri(searchedFood);
+        });
+    }
+
+    // <--- EVENTLISTENERS --->
+
+    // Food item search button
+    SEARCH_BUTTON.on('click', function(event) {
+        event.preventDefault();
+
+        const searchItem = SEARCH_INPUT.val();
+        if (searchItem === "") {
+            alert("You must enter a food item");
+            return;
+        }
+        SEARCH_INPUT.val("");
+        getNutrition(searchItem);
+    })
+
     BREAKFAST_ADD_BUTTON.on('click', function() {
         copyAppend(ITEM_DIV, BREAKFAST_DIV);
         DAILY_TOTALS_ARR.push(currentFoodObj);
-        // console.log("Add to array: ", DAILY_TOTALS_ARR);
-
     });
 
     LUNCH_ADD_BUTTON.on('click', function() {
@@ -140,23 +147,20 @@ $(document).ready(function() {
         DAILY_TOTALS_ARR.push(currentFoodObj);
     });
 
+    DAY_TOTAL_BUTTON.on('click', function() {
+        getTotal(DAILY_TOTALS_ARR, DAY_TOTAL_DIV);
+    })
+
     $("div").on('click', ".remove", function(event) {
         event.preventDefault();
 
         var foodID = $(this).parent().attr("data-food");
-        // console.log("Food ID: ", foodID);
-
         $.each(DAILY_TOTALS_ARR, function(key, value) {
-            // console.log("Food Value: ", value);
             if (value.food == foodID) {
                 foodIDKey = key;
             }
         });
-
         DAILY_TOTALS_ARR.splice(foodIDKey, 1);
-
-        // console.log("Post Remove: ", DAILY_TOTALS_ARR);
-
         $(this).parent().remove();
     });
 });
