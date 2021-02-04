@@ -25,9 +25,10 @@ function renderGoals() {
         var li = document.createElement("li");
         li.innerText = goal;
         li.setAttribute("data-index", i);
+        li.className = "li-card card blue-grey darken-1 card-content white-text";
         var achieveBtn = document.createElement("button");
         achieveBtn.textContent = "Achieved";
-        achieveBtn.className = "remove waves-effect waves-light btn m50 y14";
+        achieveBtn.className = "achv-btn remove waves-effect waves-light btn m50 y14";
         li.append(achieveBtn);
         goalList.append(li);
     }
