@@ -10,6 +10,7 @@ body {
     margin-bottom: 100px;
 }
 
+/* Nutrition Tracking */
 .itemDiv h6 {
     text-align: center;
 }
@@ -30,7 +31,6 @@ body {
     width: 40%;
     padding: 1%;
 }
-
 
 /* Brand Logo */
 .brand {
@@ -53,8 +53,6 @@ body {
 .food-modal-content {
     width: 600px;
     height: 150px;
-    /* background-color: #1B5E20; */
-    /* color: #eee; */
     z-index: 1;
     border-radius: 10px;
     padding-left: 2%;
@@ -71,7 +69,6 @@ body {
     cursor: pointer;
 }
 
-
 /* Inspiration Modal */
 .modal-content {
     height: 400px;
@@ -82,17 +79,6 @@ body {
     justify-content: center;
     border: black solid;
     position: relative;
-}
-
-.img {
-    height: 120px;
-    width: 100%;
-    background-size: cover;
-}
-
-.well-being {
-    height: 100px;
-    width: 40%;
 }
 
 .wellbeing-main {
