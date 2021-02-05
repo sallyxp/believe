@@ -5,12 +5,36 @@
     src: url(../font/BRADHITC.TTF);
 }
 
+/* Brand Logo */
+.brand {
+    font-family: bradley-hand;
+    font-weight: bold;
+}
+
+/* Inspiration Modal */
+.modal-content {
+    height: 400px;
+    width: 100%;
+    opacity: 90%;
+    background-color: rgba(205, 221, 61, 0.932);
+    border-radius: 10px;
+    justify-content: center;
+    border: black solid;
+    position: relative;
+}
+
+/* Index Mobile Images */
+.img-m {
+    margin-top: 3%;
+}
+
+/* Body CSS to compliment the Materialize Fixed Footer */
 body { 
     min-height: 100vh; 
     margin-bottom: 100px;
 }
 
-/* Nutrition Tracking */
+/* Nutrition Tracking Dynamic Divs*/
 .itemDiv h6 {
     text-align: center;
 }
@@ -25,26 +49,15 @@ body {
     text-align: left;
 }
 
+/* Food Nutrition Totals Card */
 .dayTotal {
     font-size: 18px;
-    /* height: 50%; */
     width: 45%;
     padding: 1%;
     margin: 2%;
 }
 
-/* Index Mobile Images */
-.img-m {
-    margin-top: 3%;
-}
-
-/* Brand Logo */
-.brand {
-    font-family: bradley-hand;
-    font-weight: bold;
-}
-
-/* Food Modal */
+/* Food Search Modal */
 .food-modal, .goal-modal {
     height: 100%;
     width: 100%;
@@ -75,18 +88,7 @@ body {
     cursor: pointer;
 }
 
-/* Inspiration Modal */
-.modal-content {
-    height: 400px;
-    width: 100%;
-    opacity: 90%;
-    background-color: rgba(205, 221, 61, 0.932);
-    border-radius: 10px;
-    justify-content: center;
-    border: black solid;
-    position: relative;
-}
-
+/* WellBeing Goals Page */
 .wellbeing-main {
     margin-top: 1%;
     padding-left: 2%;
@@ -109,6 +111,7 @@ body {
     transform: translate(-65%, -50%);
 }      
 
+/* Website Footer */
 footer {
     z-index: 1;
     position: fixed;
