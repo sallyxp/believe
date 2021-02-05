@@ -39,7 +39,7 @@ body {
 }
 
 /* Food Modal */
-.food-modal {
+.food-modal, .goal-modal {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -50,7 +50,7 @@ body {
     display: none;
 }
 
-.food-modal-content {
+.food-modal-content, .goal-modal-content {
     width: 600px;
     height: 150px;
     z-index: 1;
@@ -62,7 +62,7 @@ body {
     box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.8), 0 10px 20px 0 rgba(0, 0, 0, 1);
 }
 
-.food-modal-button {
+.food-modal-button, .goal-modal-button {
     position: absolute;
     bottom: 25%;
     right: 45%;
@@ -88,15 +88,20 @@ body {
     padding-bottom: 2%;
 }
 
-.achv-btn {
-    position: absolute;
-    right: 0px;
-    top: 4.5px;
-}
-
 .li-card {
-    padding: 1%;
-}
+    position: relative;
+    text-align: left;
+    padding: 2.5%;
+    }
+
+.achv-btn {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 85%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-65%, -50%);
+}      
 
 footer {
     z-index: 1;
