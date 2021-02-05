@@ -17,7 +17,8 @@ $(document).ready(function() {
     const LUNCH_ADD_BUTTON = $('.lunchAdd');
     const DINNER_ADD_BUTTON = $('.dinnerAdd');
     const DAY_TOTAL_BUTTON = $('.dayTotalBtn');
-    const DAY_TOTAL_DIV = $('.dayTotal');
+    const DAY_TOTAL_DIV = $('.dayTotal').addClass("card blue-grey darken-1 card-content white-text").hide();
+
     // ARRAYS
     let DAILY_TOTALS_ARR = [];
 
@@ -34,8 +35,22 @@ $(document).ready(function() {
             fatSum += foodItem.fat;
             carbSum += foodItem.carb;
         })
-        const String = `Calories: ${calorieSum.toFixed(2)} (kcal), Protein: ${proteinSum.toFixed(2)} (g), Fat: ${fatSum.toFixed(2)} (g), Carbs: ${carbSum.toFixed(2)} (g)`
-        DIV.html(String);
+        let calorieSumDiv = $('<div>');
+        let calorieSumString = `Calories: ${calorieSum.toFixed(2)} (kcal)`
+        calorieSumDiv.html(calorieSumString);
+        let proteinSumDiv = $('<div>');
+        let proteinSumString = `Protein: ${proteinSum.toFixed(2)} (g)`;
+        proteinSumDiv.html(proteinSumString);
+        let fatSumDiv = $('<div>');
+        let fatSumString = `Fat: ${fatSum.toFixed(2)} (g)`
+        fatSumDiv.html(fatSumString);
+        let carbSumDiv = $('<div>');
+        let carbSumString = `Carbs: ${carbSum.toFixed(2)} (g)`
+        carbSumDiv.html(carbSumString);
+        DIV.append(calorieSumDiv, proteinSumDiv, carbSumDiv, fatSumDiv);
+        DIV.show();
+        // const String = `Calories: ${calorieSum.toFixed(2)} (kcal), Protein: ${proteinSum.toFixed(2)} (g), Fat: ${fatSum.toFixed(2)} (g), Carbs: ${carbSum.toFixed(2)} (g)`
+        // DIV.html(String);
     }
 
     // Present searched item to page
@@ -75,15 +90,12 @@ $(document).ready(function() {
     // Navbar mobile collapse
     $('.sidenav').sidenav();
 
+    // Materialize image respone
+    $('.materialboxed').materialbox();
+
     // Inspiration Modal load
     $('.modal').modal();
 
-    // Food Modal .onclick close
-    $('.food-modal-button').on('click', function() {
-        $('.food-modal').css('display', 'none');
-    })
-
-    // <--- MAIN --->
     // Modal inspiration quote functions
     getInspiration();
 
@@ -119,6 +131,11 @@ $(document).ready(function() {
     }
 
     // <--- EVENTLISTENERS --->
+
+    // Food Modal .onclick close
+    $('.food-modal-button').on('click', function() {
+        $('.food-modal').css('display', 'none');
+    })
 
     // Food item search button
     SEARCH_BUTTON.on('click', function(event) {
