@@ -5,6 +5,11 @@
     src: url(../font/BRADHITC.TTF);
 }
 
+body { 
+    min-height: 100vh; 
+    margin-bottom: 100px;
+}
+
 .itemDiv h6 {
     text-align: center;
 }
@@ -24,62 +29,14 @@
     height: 50%;
     width: 40%;
     padding: 1%;
-    /* text-align: center; */
 }
 
 
 /* Brand Logo */
-
 .brand {
     font-family: bradley-hand;
     font-weight: bold;
 }
-
-
-/* Header/Banner */
-
-
-/* body {
-    background: url(../img/johannes-plenio-Cropped4-1k-unsplash.JPG);
-    background-size: contain;
-    background-position: center;
-    min-height: 1300px;
-  
-}
-@media screen and (max-width: 1024px){
-    body{
-        min-height: 1400px;
-    }
-}
-@media screen and (max-width: 670px){
-    body{
-        min-height: 900px;
-    }
-} */
-
-
-/* Header/Banner */
-
-
-/* .photos {
-       background: url(../img/johannes-plenio-Cropped4-1k-unsplash.JPG);
-      background-size: cover;
-        background-position: center;
-        min-height: 1300px;
-      
-    } */
-
-
-/* Welcome Message on home page 
-SR - This isn't wanted?
-#welcome-msg {
-    padding: 2.5%;
-    background: url(../img/nathan-anderson-GM5Yn5XRVqA-unsplash.jpg);
-    background-size: cover;
-    background-position: center;
-}
-*/
-
 
 /* Home page body contents */
 
@@ -112,7 +69,6 @@ SR - This isn't wanted?
 
 
 /* Food Modal */
-
 .food-modal {
     height: 100%;
     width: 100%;
@@ -147,7 +103,6 @@ SR - This isn't wanted?
 
 
 /* Inspiration Modal */
-
 .modal-content {
     height: 400px;
     width: 100%;
@@ -158,22 +113,6 @@ SR - This isn't wanted?
     border: black solid;
     position: relative;
 }
-
-
-/* 
- Modal Continue Button
-
-.continue {
-   position: absolute;
-   bottom: 2%;
-   right: 4%;
-   cursor: pointer;
-} */
-
-
-/* .continue:hover {
-    font-weight:900;
-} */
 
 .img {
     height: 120px;
@@ -186,18 +125,11 @@ SR - This isn't wanted?
     width: 40%;
 }
 
-.section {
-    width: 100%;
-    Height: 30%;
-    background-size: cover;
-}
-
-footer {
-    z-index: 1;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+.wellbeing-main {
+    margin-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
 }
 
 .achv-btn {
@@ -209,3 +141,12 @@ footer {
 .li-card {
     padding: 1%;
 }
+
+footer {
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
