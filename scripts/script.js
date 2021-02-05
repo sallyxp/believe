@@ -210,6 +210,7 @@ $(document).ready(function() {
     });
     // This is the button that calculates the day total. When clicked it calls the getTotal function which has been explained previously in the comments.
     DAY_TOTAL_BUTTON.on('click', function() {
+        DAY_TOTAL_DIV.empty();
         getTotal(DAILY_TOTALS_ARR, DAY_TOTAL_DIV);
     })
 

@@ -26,10 +26,11 @@ body {
 }
 
 .dayTotal {
-    font-size: 20px;
-    height: 50%;
-    width: 40%;
+    font-size: 18px;
+    /* height: 50%; */
+    width: 45%;
     padding: 1%;
+    margin: 2%;
 }
 
 /* Index Mobile Images */
