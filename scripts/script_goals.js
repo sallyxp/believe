@@ -42,6 +42,7 @@ addBtn.addEventListener("click", function (event) {
     var goalText = goalInput.value.trim();
 
     if (goalText === "") {
+        $('.goal-modal').css('display', 'flex');
         return;
     }
 
@@ -66,3 +67,9 @@ goalList.addEventListener("click", function (event) {
         renderGoals(); // Call function here again because the list item needs to disappear on clicking the button
     }
 })
+
+// Goal Modal; event listener
+$('.goal-modal-button').on('click', function () {
+    $('.goal-modal').css('display', 'none');
+})
+
