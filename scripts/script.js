@@ -5,7 +5,7 @@ $(document).ready(function() {
     // INPUT
     const SEARCH_INPUT = $('.searchInput');
     // DIVS
-    const ITEM_DIV = $('<div>').addClass("itemDiv card blue-grey darken-1 card-content white-text text-flow col s4 m2");
+    const ITEM_DIV = $('<div>').addClass("itemDiv card blue-grey darken-1 card-content white-text text-flow col s5.5 m2.5");
     const NUTRI_DIV = $('.nutri');
     const BREAKFAST_DIV = $('.breakfast');
     const LUNCH_DIV = $('.lunch');
