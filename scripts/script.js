@@ -75,15 +75,12 @@ $(document).ready(function() {
     // Navbar mobile collapse
     $('.sidenav').sidenav();
 
+    // Materialize image respone
+    $('.materialboxed').materialbox();
+
     // Inspiration Modal load
     $('.modal').modal();
 
-    // Food Modal .onclick close
-    $('.food-modal-button').on('click', function() {
-        $('.food-modal').css('display', 'none');
-    })
-
-    // <--- MAIN --->
     // Modal inspiration quote functions
     getInspiration();
 
@@ -119,6 +116,11 @@ $(document).ready(function() {
     }
 
     // <--- EVENTLISTENERS --->
+
+    // Food Modal .onclick close
+    $('.food-modal-button').on('click', function() {
+        $('.food-modal').css('display', 'none');
+    })
 
     // Food item search button
     SEARCH_BUTTON.on('click', function(event) {
