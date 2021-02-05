@@ -22,9 +22,9 @@
 .dayTotal {
     font-size: 20px;
     height: 50%;
-    width: 60%;
-    margin-left: 3.5%;
-    text-align: center;
+    width: 40%;
+    padding: 1%;
+    /* text-align: center; */
 }
 
 
