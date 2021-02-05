@@ -19,7 +19,7 @@
     <div class="navbar-fixed">
         <nav class="nav-wrapper green darken-4">
             <div class="container">
-                <a href="#" class="brand-logo brand">BELIEVE.</a>
+                <a href="#" class=" flow-text brand-logo brand">BELIEVE.</a>
                 <a href="#" class="sidenav-trigger" data-target="mobile-links">
                     <i class="material-icons">menu</i>
                 </a>
@@ -35,7 +35,7 @@
     </div>
 
     <!-- Mobile Nav Links -->
-    <ul class="sidenav" id="mobile-links">
+    <ul class="sidenav flow-text" id="mobile-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="my-wellbeing.html">My Wellbeing Goals</a></li>
         <li><a href="nutrition-tracking.html">Nutrition Tracking</a></li>
@@ -48,72 +48,98 @@
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
         <div class="modal-content">
-            <p id="modal-motd"></p>
-            <h2 class=" center-align">Hello and Welcome.</h2>
-            <h6>Your journey towards better wellbeing begins here...</h6>
-            <h6>Happiness starts from within. This site is not here to tell you what to do.</h6>
-            <h6> It is here to boost your mood and support your journey, whatever your goal.</h6>
+            <p class="flow-text" id="modal-motd"></p>
+            <h2 class="flow-text center-align">Hello and Welcome.</h2>
+            <h6 class="flow-text">Your journey towards better wellbeing begins here...</h6>
+            <h6 class="flow-text">Happiness starts from within. This site is not here to tell you what to do.</h6>
+            <h6 class="flow-text">It is here to boost your mood and support your journey, whatever your goal.</h6>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Let's Go!</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn">Let's Go!</a>
         </div>
     </div>
 
     <!-- Contents -->
     <section class="container section " id="photos">
         <div class="row">
-            <div class="col s12 l4">
-                <img src="../img/sally-rodgers-sunset.png" alt="" class="responsive-img materialboxed">
+            <div class="col l4 m4 hide-on-small-only">
+                <img src="../believe/img/sally-rodgers-sunset.png" alt="Greek sunset" class="responsive-img materialboxed">
             </div>
-            <div class="col s12 l6 offset-l1">
-                <h3 class="indigo-text text-darken-4">My Wellbeing Goals</h3>
-                <h5 class=left-align>Would you like to give up smoking? Discover Meditation? Techniques to help you relax.
-                </h5>
+            <div class="col l6 offset-l1  m6 hide-on-small-only">
+                <h2 class="flow-text indigo-text text-darken-4">My Wellbeing Goals</h2>
+                <p class="flow-text left-align">Would you like to give up smoking? Discover Meditation? Enter your
+                    goals here.</p>
                 <a href="my-wellbeing.html">My Wellbeing Goals</a>
             </div>
         </div>
         <div class="row">
-            <div class="col s12 l4 offset-l1 push-l7">
-                <img src="../img/Tomatoes.JPG" alt="" class="responsive-img materialboxed">
+            <div class="col s12 hide-on-med-and-up">
+                <h4 class="flow-text indigo-text text-darken-4">My Wellbeing Goals</h4>
+                <h5 class="flow-text ">Would you like to give up smoking? Discover Meditation? Enter your
+                    goals here.</h5>   
+                <a href="my-wellbeing.html">My Wellbeing Goals</a>
             </div>
-            <div class="col s12 l6 offset-l1 pull-l5 right-align">
-                <h2 class="indigo-text text-darken-4">Food Tracking</h2>
-                <h5>Click here to enter your daily food tracking.</h5>
-                <a href="food-tracking.html">Food Tracking</a>
+            <div class="col s8 hide-on-med-and-up">   
+                <img src="../believe/img/sally-rodgers-sunset.png" alt="Greek sunset" class="responsive-img materialboxed">    
+            </div>
+        </div>
 
+        <!-- Tomatoes -->
+        <div class="row">
+            <div class="col l4 m4  offset-l1 push-l7 hide-on-small-only">
+                <img src="../believe/img/Tomatoes.JPG" alt="Italian tomatoes" class="responsive-img materialboxed">
+            </div>
+            <div class="col l6 offset-l1 pull-l5 m6 right-align hide-on-small-only">
+                <h2 class="flow-text indigo-text right-align text-darken-4">Nutritional Tracking</h2>
+                <h5 class="flow-text right-align">Click here to enter your daily nutritional tracking.</h5>
+                <a href="nutrition-tracking.html">Nutritional Tracking</a>
             </div>
         </div>
         <div class="row">
-            <div class="col s12 l4">
-                <img src="../img/dylan-nolte-hJBgMJgswrY-unsplash.jpg" alt="" class="responsive-img materialboxed">
+            <div class="col s12 right-align hide-on-med-and-up">
+                <h4 class="flow-text indigo-text  text-darken-4">Nutritional Tracking</h4>
+                <h5 class="flow-text ">Click here to enter your daily nutritional tracking.</h5>   
+                <a href="nutrition-tracking.html">Nutrition Tracking</a>
             </div>
-            <div class="col s12 l6 offset-l1">
-                <h2 class="indigo-text text-darken-4">Food Weekly</h2>
-                <h5>Click here to see your Food Weekly data.</h5>
-                <a href="food-tracking.html">Click here</a>
+            <div class="col s8  hide-on-med-and-up">   
+                <img src="../believe/img/Tomatoes.JPG" alt="Italian tomatoes" class="responsive-img materialboxed">  
+            </div>
+        </div>
+
+
+
+        <!-- Apple-->
+        <div class="row">
+            <div class="col l4 m4 hide-on-small-only">
+                <img src="../believe/img/dylan-nolte-hJBgMJgswrY-unsplash.jpg" alt="Apple on a crate"
+                    class="responsive-img materialboxed">
+            </div>
+            <div class="col l6 offset-l1  m6 right hide-on-small-only">
+                <h3 class="flow-text indigo-text text-darken-4">Food Daily</h3>
+                <h5 class="flow-text">Click here to see your daily food data.</h5>
+                <a href="food-daily.html">Click here</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 hide-on-med-and-up">
+                <h4 class="flow-text indigo-text text-darken-4">Food Daily</h4>
+                <h5 class="flow-text left-align">Click here to see your daily food data.</h5>   
+                <a href="food-daily.html">Click here</a>
+            </div>
+            <div class="col s8  hide-on-med-and-up">   
+                <img src="../believe/img/dylan-nolte-hJBgMJgswrY-unsplash.jpg" alt="Apple on a crate"
+                class="responsive-img materialboxed">   
             </div>
         </div>
     </section>
 
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br><br>
-    <br><br>
-    <br>
-    <br>
-
     <!-- Footer here -->
     <footer class="page-footer green darken-4" style="position:fixed;bottom:0;left:0;width:100%;">
         <div class="footer-copyright">
-            <div class="container center">
+            <h4 class="flow-text  container center">
                 © 2021 The Well Being Team
-            </div>
+            </h4+>
         </div>
     </footer>
 
@@ -122,19 +148,14 @@
     <script type="text/javascript" src="scripts/materialize.min.js"></script>
     <script type="text/javascript" src="scripts/luxon.min.js"></script>
     <script type="text/javascript" src="scripts/script.js"></script>
-    <!-- <script>
+     <script>
         //to be moved to script.js 
         $(document).ready(function () {
-            $('.sidenav').sidenav();
-            $('.modal').modal();
+            $('.materialboxed').materialbox();
+           
         });
-        function closeThis() {
-            //  $('#welcome').on("click",  $('.modal').close());
-            $('.modal').on("click", function () {
-                instance.close();
-            })
-        };
-
+        
+      
 
     </script> -->
 </body>
