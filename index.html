@@ -16,106 +16,127 @@
 <body>
 
     <!-- Header/Navbar -->
-    <nav class="nav-wrapper blue darken-4">
-        <div class="container">
-            <a href="#" class="brand-logo brand">BELIEVE.</a>
-            <a href="#" class="sidenav-trigger" data-target="mobile-links">
-                <i class="material-icons">menu</i>
-            </a>
+    <div class="navbar-fixed">
+        <nav class="nav-wrapper green darken-4">
+            <div class="container">
+                <a href="#" class="brand-logo brand">BELIEVE.</a>
+                <a href="#" class="sidenav-trigger" data-target="mobile-links">
+                    <i class="material-icons">menu</i>
+                </a>
 
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="my-goals.html">My Goals</a></li>
-                <li><a href="food-tracking.html">Nutrition tracking</a></li>
-                <li><a href="food-weekly.html">My Wellbeing</a></li>
-                <li><a href="food-daily.html">About</a></li>
-            </ul>
-
-        </div>
-        <ul class="sidenav" id="mobile-links">
-
-            <li><a href="index.html">Home</a></li>
-            <li><a href="my-goals.html">My Goals</a></li>
-            <li><a href="food-tracking.html">Nutrition tracking</a></li>
-            <li><a href="food-weekly.html">My Wellbeing</a></li>
-            <li><a href="food-daily.html">About</a></li>
-        </ul>
-
-
-    </nav>
-
-
-    <!-- Container for body here -->
-    <div class="container green lighten-2">
-
-        <!-- Row-1 -->
-        <div class="row">
-            <div class="center-align" id="welcome-msg">
-                <h1 class="white-text text-darken-2">Welcome! Your Journey Towards Your Well-being Begins Here...</h1>
-                <h4 class="white-text text-darken-2">Want to quit smoking? Want to lose weight? Or want motivation?
-                    You've come to the right place :)</h4>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="my-wellbeing.html">My Wellbeing Goals</a></li>
+                    <li><a href="nutrition-tracking.html">Nutrition Tracking</a></li>
+                    <li><a href="food-daily.html">Food Daily</a></li>
+                </ul>
             </div>
-        </div>
-
-        <!-- Row-2 -->
-        <div class="row center-align">
-            <div class="mental-health">
-                <p class="black-text">Your mental health matters the most to us. Before you make any important decisions
-                    in your life, it is essential for you to be happy and ready to experience the changes we are about
-                    to bring in your life. Your satisfaction is our priority.</p>
-            </div>
-        </div>
-
-        <!-- Row-3 -->
-        <div class="row center-align">
-            <div class="diet">
-                <p class="blue-text text-darken-3">Satisfaction starts from your gut. Looking for a healthier diet? This
-                    platform is just for you!</p>
-            </div>
-        </div>
-
-        <!-- Row-4 -->
-        <div class="row center-align">
-            <div class="fitness">
-                <p class="white-text">Not only do we prioritise your mental health, but we also take into consideration
-                    your fitness and daily routine. We are here to guide you towards an improved lifestyle, on your
-                    journey towards a healthier and happier you!</p>
-            </div>
-        </div>
-
+        </nav>
     </div>
 
-    
+    <!-- Mobile Nav Links -->
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="my-wellbeing.html">My Wellbeing Goals</a></li>
+        <li><a href="nutrition-tracking.html">Nutrition Tracking</a></li>
+        <li><a href="food-daily.html">Food Daily</a></li>
+    </ul>
+
+    <!-- Modal Trigger -->
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Just starting? Click Here ...</a>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <p id="modal-motd"></p>
+            <h2 class=" center-align">Hello and Welcome.</h2>
+            <h6>Your journey towards better wellbeing begins here...</h6>
+            <h6>Happiness starts from within. This site is not here to tell you what to do.</h6>
+            <h6> It is here to boost your mood and support your journey, whatever your goal.</h6>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Let's Go!</a>
+        </div>
+    </div>
+
+    <!-- Contents -->
+    <section class="container section " id="photos">
+        <div class="row">
+            <div class="col s12 l4">
+                <img src="../img/sally-rodgers-sunset.png" alt="" class="responsive-img materialboxed">
+            </div>
+            <div class="col s12 l6 offset-l1">
+                <h3 class="indigo-text text-darken-4">My Wellbeing Goals</h3>
+                <h5 class=left-align>Would you like to give up smoking? Discover Meditation? Techniques to help you relax.
+                </h5>
+                <a href="my-wellbeing.html">My Wellbeing Goals</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 l4 offset-l1 push-l7">
+                <img src="../img/Tomatoes.JPG" alt="" class="responsive-img materialboxed">
+            </div>
+            <div class="col s12 l6 offset-l1 pull-l5 right-align">
+                <h2 class="indigo-text text-darken-4">Food Tracking</h2>
+                <h5>Click here to enter your daily food tracking.</h5>
+                <a href="food-tracking.html">Food Tracking</a>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 l4">
+                <img src="../img/dylan-nolte-hJBgMJgswrY-unsplash.jpg" alt="" class="responsive-img materialboxed">
+            </div>
+            <div class="col s12 l6 offset-l1">
+                <h2 class="indigo-text text-darken-4">Food Weekly</h2>
+                <h5>Click here to see your Food Weekly data.</h5>
+                <a href="food-tracking.html">Click here</a>
+            </div>
+        </div>
+    </section>
 
 
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br><br>
+    <br>
+    <br>
 
     <!-- Footer here -->
-    <footer class="page-footer blue darken-4" style="position:fixed;bottom:0;left:0;width:100%;">   
+    <footer class="page-footer green darken-4" style="position:fixed;bottom:0;left:0;width:100%;">
         <div class="footer-copyright">
-            <div class="container center-align">
+            <div class="container center">
                 © 2021 The Well Being Team
             </div>
-    </footer>
-
-    <!-- Modal Section -->
-    <!--need to check for different sizes -->
-    <div class="bg-modal">
-        <div class="container flow-text modal-content">
-            <h4 class="center-align">Hello and Welcome.</h4>
-            <p id="modal-motd">**API Message Placeholder**</p>
-            <p>Happiness starts from within, This site is not here to tell you what to do.</p>
-            <p>It is here to boost your mood and support you on your journey, whatever your goal.</p>
-            <div class="continue">Continue...</div>
         </div>
-    </div>
+    </footer>
 
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="scripts/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="scripts/materialize.min.js"></script>
     <script type="text/javascript" src="scripts/luxon.min.js"></script>
     <script type="text/javascript" src="scripts/script.js"></script>
+    <!-- <script>
+        //to be moved to script.js 
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            $('.modal').modal();
+        });
+        function closeThis() {
+            //  $('#welcome').on("click",  $('.modal').close());
+            $('.modal').on("click", function () {
+                instance.close();
+            })
+        };
 
+
+    </script> -->
 </body>
 
 </html>
