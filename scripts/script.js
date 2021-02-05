@@ -183,16 +183,28 @@ $(document).ready(function() {
 
     // This is the breakfast add button. It allows you to add whatever is current displayed in the search area to the breakfast section. It also pushes it to the DAILY_TOTALS_ARR for the calculate total function to use.
     BREAKFAST_ADD_BUTTON.on('click', function() {
+        if (ITEM_DIV.text() == '') {
+            $('.food-modal').css('display', 'flex');
+            return;
+        }
         copyAppend(ITEM_DIV, BREAKFAST_DIV);
         DAILY_TOTALS_ARR.push(currentFoodObj);
     });
     // This is the lunch add button. It allows you to add whatever is current displayed in the search area to the lunch section. It also pushes it to the DAILY_TOTALS_ARR for the calculate total function to use.
     LUNCH_ADD_BUTTON.on('click', function() {
+        if (ITEM_DIV.text() == '') {
+            $('.food-modal').css('display', 'flex');
+            return;
+        }
         copyAppend(ITEM_DIV, LUNCH_DIV);
         DAILY_TOTALS_ARR.push(currentFoodObj);
     });
     // This is the dinner add button. It allows you to add whatever is current displayed in the search area to the dinner section. It also pushes it to the DAILY_TOTALS_ARR for the calculate total function to use.
     DINNER_ADD_BUTTON.on('click', function() {
+        if (ITEM_DIV.text() == '') {
+            $('.food-modal').css('display', 'flex');
+            return;
+        }
         copyAppend(ITEM_DIV, DINNER_DIV);
         DAILY_TOTALS_ARR.push(currentFoodObj);
     });
