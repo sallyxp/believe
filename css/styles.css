@@ -32,6 +32,11 @@ body {
     padding: 1%;
 }
 
+/* Index Mobile Images */
+.img-m {
+    margin-top: 3%;
+}
+
 /* Brand Logo */
 .brand {
     font-family: bradley-hand;
