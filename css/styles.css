@@ -53,8 +53,8 @@ body {
 .food-modal-content {
     width: 600px;
     height: 150px;
-    background-color: #1B5E20;
-    color: #eee;
+    /* background-color: #1B5E20; */
+    /* color: #eee; */
     z-index: 1;
     border-radius: 10px;
     padding-left: 2%;
