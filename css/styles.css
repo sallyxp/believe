@@ -38,36 +38,6 @@ body {
     font-weight: bold;
 }
 
-/* Home page body contents */
-
-.mental-health {
-    background: url(../img/tim-mossholder-8R-mXppeakM-unsplash.jpg);
-    background-size: cover;
-    background-position: center;
-    padding: 10%;
-    font-size: 14pt;
-    font-weight: 700;
-}
-
-.diet {
-    background: url(../img/dylan-nolte-hJBgMJgswrY-unsplash.jpg);
-    background-size: cover;
-    background-position: center;
-    padding: 10%;
-    font-size: 14pt;
-    font-weight: 700;
-}
-
-.fitness {
-    background: url(../img/dane-wetton-AkSJQnem75Y-unsplash.jpg);
-    background-size: cover;
-    background-position: center;
-    padding: 10%;
-    font-size: 14pt;
-    font-weight: 700;
-}
-
-
 /* Food Modal */
 .food-modal {
     height: 100%;
