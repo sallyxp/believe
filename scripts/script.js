@@ -166,6 +166,11 @@ $(document).ready(function() {
         $('.food-modal').css('display', 'none');
     })
 
+    // MOTD Modal .onclick close
+    $('.modal').on('click', function() {
+        getInspiration();
+    })
+
     // This is the search button that allows us to search specific items and display their information on the screen.
     SEARCH_BUTTON.on('click', function(event) {
         event.preventDefault();
