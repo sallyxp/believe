@@ -177,13 +177,13 @@ $(document).ready(function() {
 
         const searchItem = SEARCH_INPUT.val();
         // This initialises an if statement that will present a modal prompting the user to enter a food item if they search with nothing in the input field...
-        if (searchItem === '') {
+        if (searchItem) { 
+            SEARCH_INPUT.val('');
+            getNutrition(searchItem);
+        } else {
             $('.food-modal').css('display', 'flex');
-            return;
         }
         // ...else... if they do search something it will render the nutrition of the specific item.
-        SEARCH_INPUT.val('');
-        getNutrition(searchItem);
     })
 
     // This is the breakfast add button. It allows you to add whatever is current displayed in the search area to the breakfast section. It also pushes it to the DAILY_TOTALS_ARR for the calculate total function to use.
