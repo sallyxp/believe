@@ -1,8 +1,8 @@
 # Believe.
 A wellbeing site for setting and tracking goals
 
-*   GitHub Repository [Believe. Repository](https://github.com/Loosekonnection/believe)
-*   GitHub Pages URL [Believe Website](https://loosekonnection.github.io/believe)
+*   GitHub Repository [Believe. Repository](https://sallyxp.github.io/believe)
+*   GitHub Pages URL [Believe Website](https://github.com/sallyxp)
 ---
 
 ## Introduction.
