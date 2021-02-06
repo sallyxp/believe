@@ -51,9 +51,17 @@ My Wellbeing Goals
 
 ##  Using The Believe. Website
 
-*   
+*   On the home page you can click ```JUST STARTING? CLICK HERE``` for an inspiration random quote.
 
 ![alt](README_img/screenshot_01.PNG)
+
+*   On the Wellbeing page you can create your own goals and once achieved tick off.
+
+![alt](README_img/screenshot_02.PNG)
+
+*   On the Nutrition page you can see your nutitional stats for your meals on the current day, you can either use to to pre-check or just see you days total.
+
+![alt](README_img/screenshot_03.PNG)
 
 ---
 
