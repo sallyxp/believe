@@ -42,7 +42,11 @@ The website principally has 3 pages:
 
 My Wellbeing Goals
 
-    This form is presently designed for the user to enter a goal they wish to 
+    This form is presently designed for the user to enter a goal they wish to achieve as a personal accomplishment.
+
+Nutrition Tracking
+
+    This is identifying nutrition in your meals and a day total of nutrition.
 
 ---
 
